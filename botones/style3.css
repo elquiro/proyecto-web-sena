@@ -1,0 +1,288 @@
+body {
+    margin: 0;
+    font-size: 19px;
+    font-family:'Times New Roman';
+    font-weight: bold;
+    box-sizing: border-box;
+    background: linear-gradient(to right, #0f00, transparent, #ff9);
+    min-width: 100vw;
+    min-height: 100vh;
+    line-height: 1.5;
+   
+}
+
+
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to right, #ff9, transparent, #ada);
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: 'Lucida Sans';
+    gap: 40px;
+    box-sizing: border-box;
+  
+   
+
+   
+
+}
+
+.titulo {
+   
+    margin: 0;
+    display: inline-block;
+ 
+   
+}
+
+nav {
+    display: flex;
+    justify-content: end;
+}
+
+
+nav a {
+    margin: 10px;
+    padding: 10px;
+    background-color: #111;
+    border: 2px solid red;
+    border-radius: 15px;
+}
+
+a{
+    display: flex;
+    text-decoration: none;
+     color: #fff;
+   
+}
+.logo{
+   justify-content: center;
+   align-items: center;
+}
+
+
+
+header h2 {
+  margin: 0;
+  box-sizing: border-box;
+  background: #2e7d32;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+
+
+}
+
+.intro {
+  text-align: center;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  font-size: 1.1rem;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 40px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.service {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.service:hover {
+  transform: translateY(-5px);
+  background-color: #ff7;
+}
+
+.service h2 {
+  margin-top: 0;
+  color: #2e7d32;
+  font-size: 1.3rem;
+}
+
+.cta {
+  text-align: center;
+  padding: 30px;
+}
+
+.cta a {
+  display: inline-block;
+  background: #2e7d32;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.cta a:hover {
+  background: #00f9;
+}
+
+
+
+
+
+.imagen1{
+    width: 100vw;
+    height: 45vh;
+     border-top-left-radius: 17px;  /* esquina arriba izquierda redonda */
+    border-bottom-right-radius: 147px; /* esquina abajo derecha redonda */
+}
+.img {
+    width: 60px;
+    height: 60px;
+
+}
+
+
+a:hover {
+    color: #ff7;
+}
+
+
+section {
+    margin: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+
+  
+
+    
+  
+  
+}
+
+
+aside {
+    display: flex;
+    flex-direction: column; /* Sus elementos internos (noticias) uno debajo del otro */
+    gap: 20px; /* separación entre noticias */
+   background-color: #f9f9f9; /* gris muy claro */
+   padding: 15px;
+   margin: 10px;
+   border-radius: 8px; /* esquinas redondeadas */
+   box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* sombra sutil */
+}
+   
+    
+    
+
+
+h1 {
+    font-size: 45px;
+    
+}
+
+h2 {
+    font-family: 'Courier New';
+    font-style: italic;
+    text-align: left;
+    color: #22e9;
+
+    
+}
+
+h3{
+     text-align: center;
+    font-style: italic;
+    color: #fff;
+    font-size: 37px;
+}
+
+.contenido {
+   
+    margin: 6px;
+    padding: 6px;
+    display: flex;
+    flex-direction: row-reverse;
+   
+}
+ 
+
+
+p {
+    font-weight: bold;
+    text-align: left;
+    padding: 3px;
+    margin: 3px;
+}
+
+
+
+
+.mision-vision{
+  display: flex;
+    flex-direction: column; /* Sus elementos internos (noticias) uno debajo del otro */
+    gap: 20px; /* separación entre noticias */
+    justify-content: center;
+    align-items: center;
+
+    text-align: left;
+   background-color: #f9f9f9; /* gris muy claro */
+   padding: 20px;
+   margin: 35px;
+   border-radius: 8px; /* esquinas redondeadas */
+   box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* sombra sutil */ 
+    font-size: 20px;
+    font-family:'Georgia';
+    font-weight: bold;
+  
+   
+}
+
+.quienes{
+
+    display: flex;
+    flex-direction: column; /* Sus elementos internos (noticias) uno debajo del otro */
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* separación entre noticias */
+    box-sizing:border-box;
+    text-align: left;
+   background-color: #f9f9f9; /* gris muy claro */
+   padding: 20px;
+   margin: 35px;
+   border-radius: 8px; /* esquinas redondeadas */
+   box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* sombra sutil */ 
+    font-size: 20px;
+    font-family:'Georgia';
+    font-weight: bold;
+  
+   
+
+}
+
+
+.quienes, .mision-vision {
+  max-width: 900px;    /* límite de ancho */
+  margin: 45px auto;   /* centra el bloque */
+  text-align: justify; /* mejor lectura */
+  line-height: 1.7;    /* más espacio entre líneas */
+}
+
+
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+}
+
+footer p {
+    text-align: center;
+}

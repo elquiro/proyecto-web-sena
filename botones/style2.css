@@ -1,0 +1,269 @@
+body {
+    margin: 0;
+    font-size: 19px;
+    font-family:'Times New Roman';
+    font-weight: bold;
+    box-sizing: border-box;
+    background: linear-gradient(to right, #0f00, transparent, #ff9);
+    min-width: 100vw;
+    min-height: 100vh;
+    line-height: 1.5;
+   
+}
+
+
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to right, #ff9, transparent, #ada);
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: 'Lucida Sans';
+    gap: 40px;
+  
+   
+
+   
+
+}
+
+.titulo {
+   
+    margin: 0;
+    display: inline-block;
+ 
+   
+}
+
+nav {
+    display: flex;
+    justify-content: end;
+}
+
+
+nav a {
+    margin: 10px;
+    padding: 10px;
+    background-color: #111;
+    border: 2px solid red;
+    border-radius: 15px;
+}
+
+a{
+    display: flex;
+    text-decoration: none;
+   
+}
+.logo{
+   justify-content: center;
+   align-items: center;
+}
+
+
+
+.imagen1{
+    width: 100vw;
+    height: 45vh;
+     border-top-left-radius: 17px;  /* esquina arriba izquierda redonda */
+    border-bottom-right-radius: 147px; /* esquina abajo derecha redonda */
+}
+.img {
+    width: 60px;
+    height: 60px;
+
+}
+
+a {
+    color: #fff;
+}
+
+a:hover {
+    color: #ff7;
+}
+
+
+section {
+    margin: 5px;
+    padding: 5px;
+   
+
+    
+  
+  
+}
+
+
+aside {
+    display: flex;
+    flex-direction: column; /* Sus elementos internos (noticias) uno debajo del otro */
+    gap: 20px; /* separación entre noticias */
+   background-color: #f9f9f9; /* gris muy claro */
+   padding: 15px;
+   margin: 10px;
+   border-radius: 8px; /* esquinas redondeadas */
+   box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* sombra sutil */
+}
+   
+    
+    
+
+
+h1 {
+    font-size: 45px;
+    
+}
+
+
+
+h3{
+     text-align: center;
+    font-style: italic;
+    color: #f009;
+    font-size: 37px;
+}
+
+.contenido {
+   
+    margin: 6px;
+    padding: 6px;
+    display: flex;
+    flex-direction: row-reverse;
+   
+}
+ 
+
+
+p {
+    font-weight: bold;
+    text-align: left;
+    padding: 3px;
+    margin: 3px;
+}
+
+footer {
+ 
+  background: #333;
+  color: #fff;
+  padding: 15px;
+  margin-top: 10px;
+
+}
+footer, p {
+    text-align: center;
+}
+
+li{
+    margin-bottom: 15px;
+    line-height: 1.9;
+}
+
+.form_input {
+    padding: 6px 20px;
+
+}
+input , textarea, select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 8px;
+    border: none;
+    border: 1px solid #770077;
+    box-shadow: 0 0 15px #0006;
+    background-color: transparent;
+    border-radius: 4px;
+    color:#111;
+    margin-top: 2px;
+}
+
+
+option{
+    background-color: #aad9;
+}
+
+    
+textarea{
+    min-width: 100%;
+    resize: none;
+    min-height: 100px;
+    font-family: 'Tahoma';
+
+
+}
+
+form{
+    background-color:transparent;
+    padding: 30px 20px;
+    max-width: 500px;
+    margin-top: 50px;
+    margin: auto;
+    box-shadow: 0 0 25px #0006;
+    border:  1px solid #770077;
+    border-radius: 12%;
+    font-size: 14px;
+    margin-bottom: 15px;
+  
+
+
+}
+
+fieldset{
+    border-radius: 4%;
+    margin: 15px;
+}
+
+
+legend{
+    color: #666966;
+
+}
+
+
+.checkbox{
+    width: auto;
+    height: 10px;
+}
+
+h2{
+    text-align: center;
+    margin: 0;
+    margin-bottom: 20px;
+    color: #1179;
+    text-transform: uppercase;
+    font-weight:bold;
+    font-size: 1.3em;
+
+
+    
+
+    
+}
+
+.background{
+
+    display: block;
+    margin: 0 auto;
+    padding: 50px;
+    height: 400px;
+    width: 400px;
+    
+}
+
+.enviar{
+    font-family: 'Tahoma';
+    font-size: 22px; 
+    background: #7799;
+    color: #f10000;
+    font-weight: bold;
+}
+
+
+label{
+    font-size: 0.9em;
+    line-height: 2;
+    color: #00a500;
+    font-weight: bold;
+    
+}
+
+
