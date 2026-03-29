@@ -1,269 +1,95 @@
-body {
-    margin: 0;
-    font-size: 19px;
-    font-family:'Times New Roman';
-    font-weight: bold;
-    box-sizing: border-box;
-    background: linear-gradient(to right, #0f00, transparent, #ff9);
-    min-width: 100vw;
-    min-height: 100vh;
-    line-height: 1.5;
-   
+/* SOLO FORMULARIO - NO TOCAR NADA GLOBAL */
+
+/* CONTENEDOR DEL FORM */
+form {
+ background: linear-gradient(to right,#111111, #6b8ecf);
+  max-width: 370px;
+  margin: 40px auto;
+  padding: 25px;
+  border: 1px solid #770077;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #0004;
 }
 
-
-
-.contenedor {
-    display: flex;
-    justify-content: center;
-    background: linear-gradient(to right, #ff9, transparent, #ada);
-    text-align: center;
-    box-sizing: border-box;
-    font-size: 14px;
-    font-family: 'Lucida Sans';
-    gap: 40px;
-  
-   
-
-   
-
+/* AGRUPACIONES */
+fieldset {
+  margin-bottom: 15px;
+  padding: 10px;
 }
 
-.titulo {
-   
-    margin: 0;
-    display: inline-block;
- 
-   
+/* INPUTS SOLO DENTRO DEL FORM */
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #770077;
+  border-radius: 4px;
+  margin-top: 5px;
 }
 
-nav {
-    display: flex;
-    justify-content: end;
+form h2{
+  color: #e9251b;
 }
 
-
-nav a {
-    margin: 10px;
-    padding: 10px;
-    background-color: #111;
-    border: 2px solid red;
-    border-radius: 15px;
+form legend{
+  color: aqua;
 }
 
-a{
-    display: flex;
-    text-decoration: none;
-   
-}
-.logo{
-   justify-content: center;
-   align-items: center;
+/* TEXTAREA */
+form textarea {
+  resize: none;
+  min-height: 100px;
 }
 
-
-
-.imagen1{
-    width: 100vw;
-    height: 45vh;
-     border-top-left-radius: 17px;  /* esquina arriba izquierda redonda */
-    border-bottom-right-radius: 147px; /* esquina abajo derecha redonda */
-}
-.img {
-    width: 60px;
-    height: 60px;
-
+/* LABEL */
+form label {
+  font-size: 14px;
+  color: #e3e4e3;
+  font-weight: bold;
 }
 
-a {
-    color: #fff;
+/* CONTENEDOR INPUT */
+.form_input {
+  margin-bottom: 10px;
 }
 
-a:hover {
-    color: #ff7;
-}
-
-
-section {
-    margin: 5px;
-    padding: 5px;
-   
-
-    
-  
-  
-}
-
-
-aside {
-    display: flex;
-    flex-direction: column; /* Sus elementos internos (noticias) uno debajo del otro */
-    gap: 20px; /* separación entre noticias */
-   background-color: #f9f9f9; /* gris muy claro */
-   padding: 15px;
-   margin: 10px;
-   border-radius: 8px; /* esquinas redondeadas */
-   box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* sombra sutil */
-}
-   
-    
-    
-
-
-h1 {
-    font-size: 45px;
-    
-}
-
-
-
-h3{
-     text-align: center;
-    font-style: italic;
-    color: #f009;
-    font-size: 37px;
-}
-
-.contenido {
-   
-    margin: 6px;
-    padding: 6px;
-    display: flex;
-    flex-direction: row-reverse;
-   
-}
- 
-
-
-p {
-    font-weight: bold;
-    text-align: left;
-    padding: 3px;
-    margin: 3px;
-}
-
-footer {
- 
-  background: #333;
-  color: #fff;
-  padding: 15px;
+/* BOTÓN */
+.enviar {
+  display: block;
+  width: 100%;
   margin-top: 10px;
 
-}
-footer, p {
-    text-align: center;
-}
-
-li{
-    margin-bottom: 15px;
-    line-height: 1.9;
+  font-size: 18px;
+  background: #9999e6;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.form_input {
-    padding: 6px 20px;
-
-}
-input , textarea, select {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 6px 8px;
-    border: none;
-    border: 1px solid #770077;
-    box-shadow: 0 0 15px #0006;
-    background-color: transparent;
-    border-radius: 4px;
-    color:#111;
-    margin-top: 2px;
+.enviar:hover {
+  background: #e8441b;
 }
 
-
-option{
-    background-color: #aad9;
+.contenedor-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-    
-textarea{
-    min-width: 100%;
-    resize: none;
-    min-height: 100px;
-    font-family: 'Tahoma';
-
-
+/* BOTÓN ENVIAR */
+.enviar subir {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
 }
 
-form{
-    background-color:transparent;
-    padding: 30px 20px;
-    max-width: 500px;
-    margin-top: 50px;
-    margin: auto;
-    box-shadow: 0 0 25px #0006;
-    border:  1px solid #770077;
-    border-radius: 12%;
-    font-size: 14px;
-    margin-bottom: 15px;
-  
-
-
+/* BOTÓN SUBIR */
+#btnTop {
+  display: block;
+  width: 39%;
+  margin: 10px auto; /* 🔥 ESTO LO CENTRA */
+  font-weight: bolder;
+  font-size: 14px;
+  background-color:#d3be23 ;
 }
-
-fieldset{
-    border-radius: 4%;
-    margin: 15px;
-}
-
-
-legend{
-    color: #666966;
-
-}
-
-
-.checkbox{
-    width: auto;
-    height: 10px;
-}
-
-h2{
-    text-align: center;
-    margin: 0;
-    margin-bottom: 20px;
-    color: #1179;
-    text-transform: uppercase;
-    font-weight:bold;
-    font-size: 1.3em;
-
-
-    
-
-    
-}
-
-.background{
-
-    display: block;
-    margin: 0 auto;
-    padding: 50px;
-    height: 400px;
-    width: 400px;
-    
-}
-
-.enviar{
-    font-family: 'Tahoma';
-    font-size: 22px; 
-    background: #7799;
-    color: #f10000;
-    font-weight: bold;
-}
-
-
-label{
-    font-size: 0.9em;
-    line-height: 2;
-    color: #00a500;
-    font-weight: bold;
-    
-}
-
-

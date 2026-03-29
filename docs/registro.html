@@ -1,141 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style2.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style2.css">
+    </head>
 
-<body>
+    <body>
 
-    <div class="contenedor">
-        <img class="img" src="logotipo-certiredespng-removebg-preview.png" alt class="logo">
-        <h1 class="titulo">CERTI-REDES</h1>
+        <header>
+            <div class="logo-nuevo">
+                <img class="logo-imagen" src="img/logo-moderno2a.png"
+                    alt="logo certi-redes" />
+            </div>
 
+            <div class="titulo">
+                <h1>CERTI-REDES</h1>
+            </div>
 
+            <div>
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="menu-icon"
+                    id="menu-btn">☰</label>
 
+                <div class="nav">
+                    <nav>
+                        <ul class="menu">
+                            <li><a href="#inicio">INICIO</a></li>
 
-        <nav>
+                            <li><a href="#quienes-somos">QUIENES SOMOS</a></li>
 
+                            <li><a href="#servicios">SERVICIOS</a></li>
 
-           <a href="index.html"> INICIO</a>
-            <a href="quienes.html"> QUIENES SOMOS </a>
-            <a href="registro.html"> REGISTRO</a>
-            <a href="servicios.html"> NUESTROS SERVICIOS </a>
+                            <li><a href="#atencion-cliente">ATENCION AL
+                                    CLIENTE</a></li>
 
-        </nav>
-    </div>
-    <img class="imagen1" src="adobestock_327014719.jpeg" alt="">
+                        </ul>
+                    </nav>
+                </div>
+            </header>
 
-    <main class="contenido">
+            <div class="background" alt="fondo certiredes">
 
+            </div>
 
+            <button id="modo">CAMBIAR A MODO OSCURO</button>
 
-       
+            <main class="contenido">
 
+                <div class="layout-principal">
 
+                    <div class="contenido">
 
-            <form>
+                        <section id="inicio">
 
-                <h2>
-                    Formulario de contacto
-                </h2>
+                            <h2>REGISTRO</h2>
 
+                            <div class="contenedor-form">
+                                <form>
 
-                <!--- SIMPLE INPUT  --->
+                                    <h2>
+                                        Formulario de contacto
+                                    </h2>
 
-                <fieldset>
-                    <legend>INFORMACION BASICA</legend>
-                    <div class="form_input">
-                        <label>NOMBRE
-                            <input type="text" placeholder="jhon" id="nombre">
-                        </label>
-                    </div>
+                                    <!--- SIMPLE INPUT  --->
 
-                    <div class="form_input">
-                        <label>APELLIDOS
-                            <input type="text" placeholder="connor owen">
-                        </label>
-                    </div>
+                                    <fieldset>
+                                        <legend>INFORMACION BASICA</legend>
+                                        <div class="form_input">
+                                            <label>NOMBRE
+                                                <input type="text"
+                                                    placeholder="jhon"
+                                                    id="nombre">
+                                            </label>
+                                        </div>
 
-                    <div class="form_input">
-                        <label>CORREO ELECTRONICO
-                            <input type="Email" placeholder="eldalto@gmail.com">
-                        </label>
-                    </div>
+                                        <div class="form_input">
+                                            <label>APELLIDOS
+                                                <input type="text"
+                                                    placeholder="connor owen">
+                                            </label>
+                                        </div>
 
-                    <!---  TEXTAREA--->
-                    <div class="form_input">
-                        <label>MENSAJE
-                            <textarea rows="6" placeholder="Deja tu mensaje....."></textarea>
-                        </label>
-                    </div>
-                </fieldset>
+                                        <div class="form_input">
+                                            <label>CORREO ELECTRONICO
+                                                <input type="Email"
+                                                    placeholder="eldalto@gmail.com">
+                                            </label>
+                                        </div>
 
-                <!---  SELECT  Y OPTION --->
+                                        <!---  TEXTAREA--->
+                                        <div class="form_input">
+                                            <label>MENSAJE
+                                                <textarea rows="6"
+                                                    placeholder="Deja tu mensaje....."></textarea>
+                                            </label>
+                                        </div>
+                                    </fieldset>
 
-                <fieldset>
-                    <legend>INFORMACION DE USUARIOS</legend>
-                    <div class="form_input">
-                        <label>TIPO DE USUARIOS
-                            <select name="type-of-user">
-                                <option value="user1"> cliente</option>
-                                <option value="user2"> prooveedor</option>
-                                <option value="user3"> inspector</option>
-                                <option value="user4"> aspirante</option>
-                            </select>
-                        </label>
-                    </div>
+                                    <!---  SELECT  Y OPTION --->
 
-                    <!---  DATALIST Y OPTION --->
-                    <div class="form_input">
-                        <label>REFERENTE
-                            <input list="referente" name="referente">
-                            <datalist id="referente" name=" type-of-user">
-                                <option value="camilo perez">un posible cliente </option>
-                                <option value="un distribuidor"> sofware y computo sa</option>
-                                <option value="inspector">andres martinez</option>
-                                <option value="planeador"> sergio lopez</option>
-                                </select>
-                        </label>
-                    </div>
+                                    <fieldset>
+                                        <legend>INFORMACION DE USUARIOS</legend>
+                                        <div class="form_input">
+                                            <label>TIPO DE USUARIOS
+                                                <select name="type-of-user">
+                                                    <option value="user1">
+                                                        cliente</option>
+                                                    <option value="user2">
+                                                        prooveedor</option>
+                                                    <option value="user3">
+                                                        inspector</option>
+                                                    <option value="user4">
+                                                        aspirante</option>
+                                                </select>
+                                            </label>
+                                        </div>
 
+                                        <!---  DATALIST Y OPTION --->
+                                        <div class="form_input">
+                                            <label>REFERENTE
+                                                <input list="referente"
+                                                    name="referente">
+                                                <datalist id="referente"
+                                                    name=" type-of-user">
+                                                    <option
+                                                        value="camilo perez">un
+                                                        posible cliente
+                                                    </option>
+                                                    <option
+                                                        value="un distribuidor">
+                                                        sofware y computo
+                                                        sa</option>
+                                                    <option
+                                                        value="inspector">andres
+                                                        martinez</option>
+                                                    <option value="planeador">
+                                                        sergio lopez</option>
+                                                </select>
+                                            </label>
+                                        </div>
 
-                    <div class="form_input">
-                        <label>FECHA
-                            <input type="date" placeholder="fecha de nacimiento">
-                        </label>
-                    </div>
+                                        <div class="form_input">
+                                            <label>FECHA
+                                                <input type="date"
+                                                    placeholder="fecha de nacimiento">
+                                            </label>
+                                        </div>
 
-                    <div class="form_input">
-                        <label>ACEPTO LOS TERMINOS Y CONDICIONES
-                            <input class="checkbox" type="checkbox">
-                        </label>
-                    </div>
+                                        <div class="form_input">
+                                            <label>ACEPTO LOS TERMINOS Y
+                                                CONDICIONES
+                                                <input class="checkbox"
+                                                    type="checkbox">
+                                            </label>
+                                        </div>
 
+                                    </div>
+                                    <div class="form_input">
+                                        <input class="enviar" type="submit">
+                                    </div>
+                                </fieldset>
 
+                            </form>
 
+                            <button  id="btnTop"> Volver arriba</button>
+                        </div>
+                    </main>
+                </body>
 
-                    </div>
-                    <div class="form_input">
-                        <input class="enviar" type="submit">
-                    </div>
-                </fieldset>
+                <footer>
 
-                
-            </form>
+                    <div class="footer">
 
-           
-        
-            </main>
-</body>
+                        <div class="celular">
+                            <h2>LINEA DE ATENCION</h2>
+                            <h3>CELULAR</h3>
+                            <p> +57 31536701707</p>
+                        </div>
 
-  <footer>
-        <p>&copy; 2025 Certi-Redes telefono (+575552145)</p>
-    </footer>
+                        <div class="fijo">
+                            <h2>TELEFONO FIJO</h2>
 
-</body>
+                            <p>760046</p>
+                        </div>
+
+                        <div class="ubicacion">
+
+                            <h2>NUESTRA UBICACION ES:</h2>
+                            <p>direccion</p>
+                            <p>calle 23A Norte #2N-33</p>
+                            <p>estamos ubicados en la ciudad de CALI</p>
+                        </div>
+                        <div>
+                            <img src="img/gdo.png" alt="imagen gdo">
+                            <p> + 98.000 Revisiones Periodicas </p>
+                        </div>
+
+                        <div class="hecho">
+                            <p>&copy; 2025-CERTI-REDES </p>
+                        </p> HECHO POR STIVEN QUIROGA</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+
+    </body>
 
 </html>
