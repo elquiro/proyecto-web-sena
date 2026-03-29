@@ -1,0 +1,509 @@
+/* =========================
+   🔥 RESET GENERAL
+========================= */
+* {
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   📱 BASE MOBILE (CELULAR)
+   TODO lo que está aquí es para móvil
+========================= */
+
+
+
+/* IMÁGENES RESPONSIVAS */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+/* BODY */
+body{
+    max-width: 100%;
+    font-family:'Lucida Sans';
+}
+
+/* ================= HEADER ================= */
+header {
+    font-size: 15px;
+    display: flex;
+    flex-direction: column; /* MOBILE */
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    background: linear-gradient(to right,#000000,#280274);
+}
+
+/* LOGO */
+.img {
+    width: 60px;
+    height: 60px;
+}
+
+.logo img{
+    padding: 10px;
+    width: 90px;
+}
+
+/* TITULO */
+.titulo {
+    max-width: 280px;
+    overflow: hidden;
+   
+}
+
+.titulo h1{
+    font-style: italic;
+    color: #f3f3f3;
+    white-space: nowrap;
+}
+
+/* ================= MENU MOBILE ================= */
+
+/* OCULTAR CHECKBOX */
+#menu-toggle {
+  display: none;
+}
+
+/* ICONO HAMBURGUESA */
+.menu-icon {
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  display: block;
+}
+
+/* OCULTAR MENU */
+.nav {
+  display: none;
+}
+
+/* MOSTRAR MENU */
+#menu-toggle:checked + .menu-icon + .nav {
+  display: block;
+}
+
+/* MENU EN COLUMNA */
+.nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:12px;
+  list-style: none;
+  font-weight: bold;
+}
+
+/* LINKS */
+ul a{
+    color: #FFF58A;
+    text-decoration: none;
+}
+
+.nav a:hover{
+    color: #000011;
+}
+
+/* SUBMENU */
+.submenu{
+    position: relative;
+}
+
+.submenu ul{
+    position: absolute;
+    background-color: #000011;
+    display: none;
+
+}
+
+.submenu:hover ul,
+.submenu:focus-within ul {
+    display: block;
+}
+
+
+/* ================= CONTENIDO ================= */
+
+main{
+    padding: 40px;
+    line-height: 1.9;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+}
+
+#inicio{
+    max-width: 700px;
+    line-height: 2.7;
+}
+
+#quienes-somos,#servicios,#atencion-cliente{
+    text-align: left;
+    max-width: 700px;
+}
+
+
+
+/* IMÁGENES */
+.imagen {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.imagen1 {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  margin: 20px 0;
+}
+
+/* GALERIA */
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  text-align: center;
+  width: 180px;
+}
+
+.imagenes {
+  height: 180px;
+  object-fit: cover;
+}
+
+p {
+  max-width: 700px;
+  line-height: 1.9;
+  font-size: 17px;
+}
+
+/* ================= ASIDE ================= */
+aside {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #ada4;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+/* CONTENEDOR */
+.contenedor-principal {
+  display: block;
+}
+
+.aside-container {
+  position: sticky;
+  top: 20px;
+  align-self: flex-start;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    background: linear-gradient(to right, #280274, #000000);
+    color: #f1f1f1;
+    padding: 60px 20px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer div {
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+}
+
+
+
+/* =========================
+   📱📟 TABLET (pantallas medianas)
+========================= */
+@media (min-width: 600px) {
+
+    .layout-principal {
+    display: flex;
+    gap: 40px;
+  }
+
+  .contenido {
+    width: 60%;
+  }
+
+  .aside-container {
+    width: 40%;
+  }
+}
+  
+
+  .imagen {
+    max-width: 400px;
+  }
+
+
+
+/* =========================
+   💻 PC (pantallas grandes)
+========================= */
+@media (min-width: 768px) {
+
+   .layout-principal {
+    display: flex;
+    gap: 40px;
+  }
+
+  .contenido {
+    width: 60%;
+  }
+
+  .aside-container {
+    width: 40%;
+  }
+}
+  
+
+
+
+  .titulo{
+    font-size: 17px;
+    
+  }
+
+
+
+  /* HEADER EN FILA */
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  /* OCULTAR HAMBURGUESA */
+  .menu-icon {
+    display: none;
+  }
+
+  /* MOSTRAR MENU */
+  .nav {
+    display: block;
+  }
+
+  .nav ul {
+    flex-direction: row;
+  }
+
+ 
+
+  #quienes-somos{
+    width: 65%;
+  }
+   
+   #servicios {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .aside-container {
+    width: 35%;
+    position: sticky;
+    top: 20px;
+    background-color: ;
+  }
+
+  /* IMÁGENES */
+  .imagen {
+    max-width: 300px;
+  }
+
+  .imagen1 {
+    max-height: 300px;
+    max-width: 400px;
+  }
+
+  /* FOOTER EN FILA */
+  .footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .footer div {
+    width: auto;
+  }
+
+
+
+@media (min-width: 1024px) {
+
+  .layout-principal {
+    display: flex;
+    gap: 40px;
+  }
+
+  .contenido {
+    width: 60%;
+  }
+
+  .aside-container {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1200px) {
+
+  /* CONTENEDOR GENERAL CENTRADO */
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+
+  /* IMÁGENES MÁS GRANDES PERO CONTROLADAS */
+  .imagen {
+    max-width: 600px;
+  }
+
+  .imagen1 {
+    max-width: 700px;
+  }
+
+}
+
+
+/* 🔧 FIX MOBILE */
+
+/* ================= HEADER ================= */
+header {
+    font-size: 11px;
+    display: flex;
+    flex-direction: column; /* MOBILE */
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    background: linear-gradient(to right,#000000,#280274);
+}
+
+/* LOGO */
+.img {
+    width: 60px;
+    height: 60px;
+}
+
+.logo img{
+    padding: 10px;
+    width: 90px;
+}
+
+/* TITULO */
+.titulo {
+    max-width: 280px;
+    overflow: hidden;
+}
+
+.titulo h1{
+    font-style: italic;
+    color: #f3f3f3;
+    white-space: nowrap;
+}
+
+
+@media (max-width: 767px) {
+
+  .layout-principal {
+    display: flex;
+    flex-direction: column;
+  }
+/* OCULTAR CHECKBOX */
+#menu-toggle {
+  display: none;
+}
+
+/* ICONO HAMBURGUESA */
+.menu-icon {
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  display: block;
+}
+
+/* OCULTAR MENU */
+.nav {
+  display: none;
+}
+
+/* MOSTRAR MENU */
+#menu-toggle:checked + .menu-icon + .nav {
+  display: block;
+}
+
+/* MENU EN COLUMNA */
+.nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:12px;
+  list-style: none;
+  font-weight: bold;
+}
+
+/* LINKS */
+ul a{
+    color: #FFF58A;
+    text-decoration: none;
+}
+
+.nav a:hover{
+    color: #BF092F;
+}
+
+/* SUBMENU */
+.submenu{
+    position: relative;
+}
+
+.submenu ul{
+    position: absolute;
+    background-color: #628141;
+    display: none;
+
+}
+
+.submenu:hover ul,
+.submenu:focus-within ul {
+    display: block;
+}
+
+  .contenido,
+  .aside-container {
+    width: 100%;
+  }
+
+  .aside-container {
+    position: sticky;
+  }
+
+  .footer{
+    flex-direction: column;
+   
+   
+  }
+
+}
