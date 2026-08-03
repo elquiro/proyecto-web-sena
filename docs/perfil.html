@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - Certiredes</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <header id="inicio">
+        <div>
+            <img class="imagen1" src="img/nuevologo2.png" alt="Logo Certiredes">
+        </div>
+
+        <div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="servicios.html">SERVICIOS</a></li>
+                    <li><a href="quienes.html">QUIÉNES SOMOS</a></li>
+                    <li><a href="acceso.html">PORTAL CERTIREDES</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2>Mi Perfil</h2>
+        <h2>Administre su información personal.</h2>
+
+        <section class="contenedor">
+            <div class="perfil-contenido">
+
+                <div class="perfil-resumen">
+                    <img id="fotoUsuario" src="img/default.png" alt="Usuario">
+                    
+                    <input type="file" id="fotoInput" accept="image/*">
+                    <label for="fotoInput">Foto de perfil</label>
+
+                    <h3 id="nombreUsuario">Nombre</h3>
+                    <p id="tipoUsuario"></p>
+
+                    <div>
+                        <a class="btn-registro" href="portal.html">← Volver al portal</a>
+                    </div>
+                </div>
+
+                <div class="perfil-formulario">
+                    <form onsubmit="guardarCambios(event)">
+                        <fieldset>
+                            <legend>Información personal</legend>
+
+                            <label for="nombre">Nombre completo
+                                <input type="text" id="nombre" name="nombre">
+                            </label>
+
+                            <label for="correo">Correo electrónico
+                                <input type="email" id="correo" name="correo">
+                            </label>
+
+                            <label for="telefono">Teléfono
+                                <input type="tel" id="telefono" name="telefono">
+                            </label>
+                        </fieldset>
+
+                        <div class="perfil-botones">
+                            <button type="submit">Guardar cambios</button>
+                            <button type="button" onclick="cancelar()">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-contenido">
+            <div class="footer-seccion">
+                <img class="imagen1" src="img/nuevologo2.png" alt="Logo Certiredes">
+                <h3>Certiredes</h3>
+
+                <p>Especialistas en inspección y certificación de redes de gas, cumpliendo con la normativa vigente.</p>
+                <p>📍 Calle 52B Norte #57-96</p>
+                <p>📞 300 123 4567</p>
+                <p>📧 contacto@certiredes.com</p>
+            </div>
+
+            <div class="footer-seccion">
+                <h2>Enlaces</h2>
+                <ul>
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="servicios.html">SERVICIOS</a></li>
+                    <li><a href="quienes.html">QUIÉNES SOMOS</a></li>
+                    <li><a href="acceso.html">PORTAL CERTIREDES</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-seccion">
+                <h2>Síguenos</h2>
+
+                <div class="redes">
+                    <div>
+                        Facebook
+                        <img src="img/facebook3.png" alt="Facebook">
+                    </div>
+
+                    <div>
+                        Instagram 
+                        <img src="img/instagram3.png" alt="Instagram">
+                    </div>
+
+                    <div>
+                        WhatsApp 
+                        <img src="img/whatsapp3.png" alt="WhatsApp">
+                    </div>
+                </div>
+
+                <div class="aliado">
+                    <h2>Aliado</h2>
+                    <img src="img/gdo.png" alt="Gases de Occidente" class="aliado">
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copy">
+            <h2>© 2026 Certiredes - Todos los derechos reservados. Hecho por Stiven Quiroga.</h2>
+        </div>
+    </footer>
+
+    <script src="perfil.js"></script>
+</body>
+
+</html>

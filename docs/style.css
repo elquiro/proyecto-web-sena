@@ -7,44 +7,54 @@
 
 /* GENERAL */
 body {
-  font-family:'Verdana';
+  font-family: 'Verdana', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
 }
 
 /* BACKGROUND (estable en todas las pantallas) */
 .background {
   width: 100%;
   height: 280px; /* 🔥 fijo para que no se dañe */
-
   background-image: url("img/adobestock_327014719.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* TEXTOS */
+/* TEXTOS GENERALES */
 h2, h3, h4 {
   text-align: center;
-  font-size: 18px;
-  padding: 5px;
-
- 
+  font-size: 20px;
+  padding: 10px;
+  color: #280274;
 }
 
 p {
   line-height: 1.9;
-  padding: 20px;
+  padding: 15px;
 }
 
 /* HEADER */
 header {
   width: 100%;
   padding: 15px;
-  background: linear-gradient(to right,#0f0f0f, #9999e6);
-
+  background: linear-gradient(to right, #4e0c99, #0408f0);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  z-index: 50;
+}
+
+a {
+  color: #ffffff; /* O el color claro que prefieras */
+  text-decoration: none; /* Esto les quita la línea subrayada aburrida */
 }
 
 /* LOGO */
@@ -66,9 +76,25 @@ header {
 }
 
 .menu-icon {
-  font-size: 28px;
-  color: white;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
+ 
+}
+
+/* barras */
+.menu-icon span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #26e6a3;
+  margin-bottom: 6px;
+  border-radius: 4px;
+}
+
+.menu-icon span:last-child {
+  margin-bottom: 0;
 }
 
 /* NAV */
@@ -77,8 +103,8 @@ header {
   width: 100%;
 }
 
-/* activar menú */
-#menu-toggle:checked + .menu-icon + .nav {
+/* Activar menú por CSS puro mediante Checkbox */
+#menu-toggle:checked ~ .nav {
   display: block;
 }
 
@@ -87,33 +113,22 @@ header {
   display: flex;
   flex-direction: column; /* mobile */
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   list-style: none;
-}
-
-/* LINKS */
-.nav ul li a {
-  font-size: 14px;
-}
-
-
-.nav {
-  display: none;
-}
-
-.nav.activo {
-  display: block;
+  padding: 15px 0;
 }
 
 ul li a {
   color: #FFF58A;
   text-decoration: none;
   font-weight: bold;
+  font-size: 14px;
+  transition: color 0.2s;
 }
 
-/* HOVER (NO lo quitamos) */
+/* HOVER */
 .nav ul li a:hover {
-  color: #f009; /* o el que quieras */
+  color: #26e6a3; /* Un verde brillante corporativo para el contraste */
 }
 
 /* MAIN */
@@ -123,102 +138,247 @@ main {
   margin: auto;
 }
 
-/* LAYOUT */
-.layout-principal {
+/* IMÁGENES */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===================================================
+   🎨 ESTILOS PARA LAS NUEVAS SECCIONES COMERCIALES
+=================================================== */
+
+/* HERO SECTION (INICIO) */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px 10px;
+  align-items: center;
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 24px;
+  color: #4e0c99;
+  margin-bottom: 15px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn-primary, .btn-secondary, .btn-submit {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  border: none;
+}
+
+.btn-primary {
+  background: #26e6a3; /* Verde Corporativo */
+  color: #000;
+}
+
+.btn-secondary {
+  background: #4e0c99;
+  color: #fff;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+  transform: scale(1.05);
+}
+
+/* BANNER DE EMERGENCIA */
+.alert-banner {
+  background: #ff3b30;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 25px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-alert {
+  background: white;
+  color: #ff3b30;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* SECCIÓN QUIENES SOMOS Y ESTADÍSTICAS */
+.about-section {
+  padding: 30px 10px;
+}
+
+.subtitle {
+  color: #26e6a3;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.about-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.stat-card {
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border-left: 5px solid #4e0c99;
+}
+
+.stat-card h3 {
+  font-size: 28px;
+  color: #26e6a3;
+}
+
+/* SECCIÓN SERVICIOS EN GRID */
+.services-section, .faq-section {
+  padding: 40px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.services-grid, .faq-grid {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.contenido {
-  width: 100%;
-}
-
-section {
-  margin-bottom: 30px;
-}
-
-/* IMÁGENES */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-.imagen-certi {
-  padding: 10px;
-}
-
-/* GALERÍA */
-.galeria {
+.service-card, .faq-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
   text-align: center;
-  font-size: 20px;
 }
 
-/* CARD */
-.card {
-  text-align: center;
-  padding: 10px;
+.service-icon {
+  font-size: 35px;
+  color: #0408f0;
+  margin-bottom: 15px;
 }
 
-/* ARTICLE */
-article {
-  padding: 20px;
-}
-
-/* ASIDE */
-aside {
+/* SECCIÓN CONTACTO Y FORMULARIO */
+.contact-container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  background: #ebdbe9;
-  padding: 10px;
+  gap: 30px;
+  background: #efefef;
+  padding: 25px;
   border-radius: 10px;
 }
 
-.aside-container {
+.info-items p {
+  padding: 8px 0;
+  font-size: 15px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Verdana';
+}
+
+.btn-submit {
+  background: #4e0c99;
+  color: #fff;
   width: 100%;
+}
+
+/* BOTÓN MODO OSCURO EN EL BANNER */
+#modo {
+  background: #000;
+  color: #fff;
+  padding: 5px 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+ 
 }
 
 /* FOOTER */
 footer {
   background: linear-gradient(to right, #280274, #000);
   color: white;
-  padding: 20px;
+  padding: 25px 20px;
 }
 
 .footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 .footer div {
   text-align: center;
+  width: 100%;
 }
 
 .footer p {
   padding: 3px;
 }
 
-.celular { text-align: left; }
-.ubicacion { text-align: right; }
-.fijo { text-align: center; }
-
-#modo {
-  background: black;
+footer h2, 
+footer h3 {
   color: white;
 }
-
-/* =========================
-   📱 TABLET (NO se rompe)
-========================= */
+/* ===================================================
+   📱 TABLET (Medianas pantallas - NO se rompe)
+=================================================== */
 @media (min-width: 600px) and (max-width: 900px) {
-
   header {
-    flex-direction: column; /* 🔥 como mobile */
+    flex-direction: column;
     align-items: center;
-    text-align: center;
   }
 
   .titulo h1 {
@@ -226,21 +386,17 @@ footer {
     margin: 10px 0;
   }
 
-  .menu-icon {
-    align-self: center;
+  .about-stats, .services-grid, .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
-
-  .nav ul {
-    flex-direction: column;
-  }
-
 }
 
-/* =========================
-   💻 PC (orden normal)
-========================= */
+/* ===================================================
+   💻 PC / ESCRITORIO (Orden premium)
+=================================================== */
 @media (min-width: 901px) {
-
   .background {
     height: 550px;  
   }
@@ -267,85 +423,125 @@ footer {
 
   .nav ul {
     flex-direction: row;
-    gap: 20px;
+    gap: 25px;
+    padding: 0;
   }
 
-}
-
-/* =========================
-   🖥️ LAYOUT GRANDE
-========================= */
-@media (min-width: 1024px) {
-
-  .layout-principal {
+  /* Distribución de secciones en PC */
+  .hero-section {
     flex-direction: row;
-    gap: 40px;
+    justify-content: space-between;
+    text-align: left;
+    padding: 60px 0;
   }
 
-  .contenido {
-    width: 65%;
+  .hero-content {
+    text-align: left;
+    width: 50%;
   }
 
-  .aside-container {
-    width: 35%;
+  .hero-content h1 {
+    font-size: 34px;
+  }
+
+  .hero-buttons {
+    justify-content: flex-start;
+  }
+
+  .hero-image {
+    width: 45%;
+  }
+
+  .alert-banner {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 40px;
+  }
+
+  .about-stats, .services-grid, .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .contact-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+  }
+
+  .contact-info, .contact-form-container {
+    width: 48%;
   }
 
   .footer {
+   
     flex-direction: row;
     justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer div {
+    text-align: left;
+    width: auto;
   }
 }
 
+/* ===================================================
+   🖥️ LAYOUT ULTRA ANCHO
+=================================================== */
 @media (min-width: 1200px) and (max-width: 3200px) {
   .background {
-    height: 750px;              /* 🔥 ajusta altura real */
-   /* 🔥 muestra parte importante */
+    height: 650px;              
   }
 }
 
-
-/* =========================
-   🌙 MODO OSCURO COMPLETO
-========================= */
-
+/* ===================================================
+   🌙 MODO OSCURO COMPLETO (Sincronizado)
+=================================================== */
 body.oscuro {
   background: #121212;
   color: #f1f1f1;
 }
 
-/* HEADER */
 body.oscuro header {
-   background: linear-gradient(to right,#6c6b6b, #020c2a);
+  background: linear-gradient(to right, #1a1a1a, #280274);
 }
 
-/* NAV LINKS */
 body.oscuro ul li a {
-  color: #ddd;
-}
-
-body.oscuro a:hover {
-  color: #ff7;
-}
-
-/* MAIN */
-body.oscuro main {
-  background: #181818;
-}
-
-/* ASIDE */
-body.oscuro aside {
-  background: #222;
   color: #fff;
 }
 
-/* FOOTER */
+body.oscuro .stat-card, 
+body.oscuro .service-card, 
+body.oscuro .faq-card {
+  background: #1e1e1e;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+body.oscuro h2, body.oscuro h3, body.oscuro h4 {
+  color: #26e6a3;
+}
+
+body.oscuro .contact-container {
+  background: #1e1e1e;
+}
+
+body.oscuro .form-group input, 
+body.oscuro .form-group select, 
+body.oscuro .form-group textarea {
+  background: #2a2a2a;
+  color: #fff;
+  border: 1px solid #444;
+}
+
 body.oscuro footer {
-  background: linear-gradient(to right,#1d1d1d, #441518);
+  background: linear-gradient(to right, #111, #000);
 }
 
-/* BOTONES (opcional) */
-body.oscuro button {
-  background: #ec0606;
-  color: #fff;
-  border: none;
+body.oscuro button#modo {
+  background: #26e6a3;
+  color: #000;
 }

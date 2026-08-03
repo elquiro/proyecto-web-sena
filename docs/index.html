@@ -2,345 +2,279 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>certi-redes</title>
-    <link rel="stylesheet" href="style.css">
-   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certiredes - Servicios de Inspección</title>
+    <link rel="stylesheet" href="estilo.css">
 </head>
 
 <body>
-    <header>
-        <div class="logo-nuevo">
-            <img class="logo-imagen" src="img/logo-moderno2a.png" alt="logo certi-redes" />
-        </div>
-
-        <div class="titulo">
-            <h1>CERTI-REDES</h1>
-        </div>
-
-        
+    <header id="inicio">
         <div>
-            <input type="checkbox" id="menu-toggle">
-            <label for="menu-toggle" class="menu-icon" id="menu-btn">☰</label>
-        
-        
+            <img class="imagen1" src="img/nuevologo2.png" alt="Logo Certiredes">
+        </div>
 
-            <div class="nav">
+        <div>
             <nav>
-                <ul class="menu">
-                    <li><a href="#inicio">INICIO</a></li>
-
-                    <li><a href="#quienes-somos">QUIENES SOMOS</a></li>
-
-                    <li><a href="#servicios">SERVICIOS</a></li>
-
-                    <li><a href="#atencion-cliente">ATENCION AL CLIENTE</a></li>
-                        
-                    <li><a href="registro.html">REGISTRO</a></li>
-
-                    
+                <ul>
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="servicios.html">SERVICIOS</a></li>
+                    <li><a href="quienes.html">QUIÉNES SOMOS</a></li>
+                    <li><a href="acceso.html">PORTAL CERTIREDES</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div class="background" alt="fondo certiredes">
-        <button id="modo">CAMBIAR  A MODO OSCURO</button>
-    </div>
+    <div class="banner"></div>
+
     <main>
-        <div class="layout-principal">
+        <section class="inicio">
+            <div>
+                <h1 class="titulo">SERVICIOS DE INSPECCIÓN DE GAS NATURAL</h1>
 
-            <div class="contenido">
+                <p class="informacion">
+                    Inspección, mantenimiento y certificación residencial y comercial con el respaldo y la experiencia que necesitas.
+                    <br><br>
+                    Te brindamos asesoría continua y soluciones al alcance de un clic para que tengas la mejor experiencia, de forma ágil y oportuna. Te invitamos a ser parte de nosotros y confiar en nuestros servicios diseñados para ti.
+                </p>
+            </div>
+            <img class="img-inicio" src="img/inicio.png" alt="Inspección de Gas">
+        </section>
 
-                <section id="inicio">
+        <div class="button-inicial">
+            <a href="acceso.html" class="btn-primary">AGENDAR INSPECCIÓN</a>
+            <a href="servicios.html" class="btn-secondary">VER SERVICIOS</a>
+            <button class="modo btn-primary">CAMBIAR A MODO OSCURO</button>
+        </div>
 
+        <div class="boton-flotante">
+            <a href="#inicio">
+                <img src="img/flecha-hacia-arriba.png" class="subir" alt="Ir arriba">
+            </a>
 
-                    <h2>¿QUE ES CERTI-REDES?</h2>
+            <a href="https://wa.me/573001234567" target="_blank">
+                <img src="img/whatsapp3.png" class="whatsapp" alt="Contacto WhatsApp">
+            </a>
+        </div>
 
+        <h2>Nuestros Servicios</h2>
+
+        <section class="servicios">
+            <div>
+                <article class="card-index">
+                    <h3>Revisión periódica</h3>
                     <p>
-                        Certi-Redes es una empresa especializada en certificaciones,
-                        inspección y control de instalaciones de gas en hogares y
-                        establecimientos comerciales.
+                        Servicio de revisión obligatoria para garantizar el correcto funcionamiento de las instalaciones de gas.
                     </p>
+                </article>
 
+                <article class="card-index">
+                    <h3>Inspección de redes nuevas o reformadas</h3>
                     <p>
-                        Trabajamos bajo normativa vigente para garantizar seguridad, confianza
-                        y cumplimiento legal a nuestros clientes.
+                        Este servicio se realiza en instalaciones de gas que han sido construidas o modificadas recientemente.
                     </p>
+                </article>
 
-                    <h3>CERTIFICAMOS TU TRANQUILIDAD</h3>
-
+                <article class="card-index">
+                    <h3>Redes sin vínculo contractual</h3>
                     <p>
-                        Contamos con un equipo de más de 60 profesionales quegarantizan día a
-                        día la seguridad en el hogar y en las empresas que usan las redes de
-                        Gdo. Puede encender tranquilo su artefacto de gas, nosotros estamos
-                        protegiéndolo.
+                        Aplica a instalaciones que no cuentan con un contrato activo con una empresa distribuidora de gas.
                     </p>
+                </article>
 
-                    <img class="imagen-certi" src="img/WhatsApp-Image-2023-05-02-at-2.31.29-PM.jpg"
-                        alt="grupo de trabajo" />
-                </section>
-
-                <section id="quienes-somos">
-                    <h2>QUIENES SOMOS</h2>
-
+                <article class="card-index">
+                    <h3>Redes en uso con plazo vencido</h3>
                     <p>
-                        Certi-Redes es una empresa especializada en la inspección,
-                        certificación y control de instalaciones de gas en hogares, comercios
-                        e industrias, cumpliendo con la normativa vigente y los estándares de
-                        seguridad.
+                        Este servicio está dirigido a instalaciones que ya han superado el tiempo establecido para su revisión obligatoria.
                     </p>
+                </article>
+            </div>
 
-                    <p>
-                        Nuestro equipo está conformado por profesionales capacitados y con
-                        experiencia en el sector, comprometidos con la seguridad, la calidad y
-                        la correcta ejecución de cada proceso.
-                    </p>
+            <div>
+                <img src="img/certi.png" alt="Certificación Certiredes">
+            </div>
+        </section>
 
-                    <p>
-                        Trabajamos para garantizar instalaciones confiables, prevenir riesgos
-                        y brindar tranquilidad a nuestros clientes mediante un servicio
-                        técnico responsable y transparente.
-                    </p>
+        <section class="cobertura">
+            <div class="titulo">
+                <h2>COBERTURA</h2> 
+                <h2>OPERAMOS EN 4 DEPARTAMENTOS DEL PAÍS</h2>
+            </div>
 
-                    <img class="imagen-certi" src="img/WhatsApp-Image-2023-05-02-at-4.55.38-PM.jpeg"
-                        alt="quienes somos" />
-                </section>
+            <div class="ciudades-cobertura">
+                <div class="ciudad">
+                    <h2>SANTIAGO DE CALI</h2>
+                    <img class="img-ciudad" src="img/cali.webp" alt="Cali">
+                </div>
 
+                <div class="ciudad">
+                    <h2>PEREIRA</h2>
+                    <img class="img-ciudad" src="img/pereira.jpg" alt="Pereira">
+                </div>
 
-                <section id="servicios">
+                <div class="ciudad">
+                    <h2>ARMENIA</h2>
+                    <img class="img-ciudad" src="img/quindio.jpg" alt="Armenia">
+                </div>
 
-                    <h2>SERVICIOS</h2>
+                <div class="ciudad">
+                    <h2>MANIZALES</h2>
+                    <img class="img-ciudad" src="img/manizales.jpg" alt="Manizales">
+                </div>
+            </div>
+        </section>
 
-                    <article>
-                        <h3>Certificación de Instalaciones de Gas</h3>
+        <section id="preguntas-frecuentes"></section>
 
-                        <p>
-                            Realizamos inspecciones técnicas para certificar instalaciones de
-                            gas en hogares, comercios e industrias, garantizando el cumplimiento
-                            de la normativa vigente.
-                        </p>
+        <h2>Consulta de certificado</h2>
 
-                        <img class="imagen-certi" src="img/5aac4bc14ea40.jpeg" alt="certificaciones" />
-                    </article>
+        <section class="certificado">
+            <div class="texto">
+                <h2>Certificado de Gas</h2>
 
-                    <article>
-                        <h3>Revisión y Control de Redes de Gas</h3>
+                <p>
+                    El certificado de gas es un documento obligatorio que garantiza que las instalaciones cumplen con las normas de seguridad exigidas por la ley. Este certificado es necesario para la conexión, reconexión o continuidad del servicio de gas natural.
+                </p>
 
-                        <p>
-                            Verificamos el estado de las redes de gas, detectando posibles
-                            fallas, fugas o riesgos que puedan comprometer la seguridad de las
-                            instalaciones.
-                        </p>
+                <p>
+                    Nuestro equipo realiza inspecciones técnicas detalladas para verificar el estado de las redes internas, asegurando que no existan fugas ni riesgos para los usuarios.
+                </p>
 
-                        <img class="imagen-certi" src="img/3.jpg" alt="revision y control de gas" />
-                    </article>
+                <p>
+                    Al finalizar el proceso, se emite el certificado correspondiente, brindando tranquilidad y cumplimiento normativo.
+                </p>
+            </div>
 
-                    <article>
-                        <h3>Mantenimiento Preventivo</h3>
-                        <p>
-                            Ofrecemos mantenimiento preventivo para asegurar el correcto
-                            funcionamiento de las instalaciones y prolongar su vida útil.
-                        </p>
+            <img class="img-certificado" src="img/certifcado.png" alt="Certificado de Gas">
+        </section>
 
-                        <img class="imagen-certi" src="img/Slider2.jpg" alt="mantenimento preventivo" />
-                    </article>
+        <section class="quienes" id="quienes-somos">
+            <div class="texto">
+                <h2>Quiénes somos</h2>
 
-                    <article>
-                        <h3>Asesoría Técnica</h3>
-                        <p>
-                            Brindamos acompañamiento y asesoría técnica especializada para
-                            proyectos, adecuaciones y cumplimiento de requisitos técnicos
-                            exigidos por las entidades reguladoras.
-                        </p>
-                    </article>
+                <p>
+                    Somos una empresa especializada en la inspección y certificación de instalaciones de gas natural, comprometida con la seguridad, calidad y cumplimiento de la normativa vigente.
+                </p>
 
-                    <img class="imagen-certi" src="img/Slider1.jpg" alt="asesoria tecnica" />
+                <p>
+                    Contamos con personal calificado y experiencia en el sector, lo que nos permite ofrecer un servicio confiable, ágil y seguro a nuestros clientes.
+                </p>
 
-                    <img class="imagen-certi" src="img/Slider3.jpg" alt="asesoria tecnica2" />
-                </section>
+                <p>
+                    Trabajamos con responsabilidad y transparencia, brindando soluciones que garantizan el correcto funcionamiento de las redes de gas en hogares y empresas.
+                </p>
+            </div>
 
-                <section id="atencion-cliente">
-                    <h2>ATENCION AL CLIENTE</h2>
+            <img class="img-quienes" src="img/quienes.png" alt="Quiénes Somos">
+        </section>
 
-                    <p>
-                        En Certi-Redes brindamos atención al cliente oportuna, clara y confiable,
-                        orientada a resolver inquietudes, solicitudes y acompañar a nuestros
-                        clientes durante todo el proceso de certificación.
-                    </p>
+        <section class="portal">
+            <div class="texto">
+                <h2>Portal Certiredes</h2>
 
-                    <article>
+                <p>
+                    A través de nuestro portal Certiredes, los usuarios pueden gestionar de manera rápida y sencilla sus solicitudes de inspección y certificación.
+                </p>
 
-                        <h3>Canales de Atención</h3>
+                <ul>
+                    <li><a href="acceso.html">Agendar citas</a></li>
+                    <li><a href="acceso.html">Consultar el estado de su solicitud</a></li>
+                    <li><a href="acceso.html">Descargar certificados</a></li>
+                    <li><a href="acceso.html">Recibir notificaciones del proceso</a></li>
+                </ul>
 
-                        <ul>
-                            <li>Atención telefónica</li>
-                            <li>WhatsApp empresarial</li>
-                            <li>Correo electrónico</li>
-                            <li>Atención presencial</li>
-                        </ul>
-                    </article>
+                <p>
+                    Nuestro portal está diseñado para brindar comodidad, transparencia y acceso fácil a toda la información relacionada con su servicio.
+                </p>
+            </div>
 
-                    <article>
+            <img class="img-portal" src="img/portal.png" alt="Portal Certiredes">
+        </section>
 
-                        <h3>Horarios de Atención</h3>
+        <section class="contacto">
+            <div class="texto">
+                <h2>Contáctenos</h2>
 
-                        <p>Lunes a viernes: 8:00 a.m. a 5:00 p.m.</p>
-                        <p> Sábados: 8:00 a.m. a 12:00 m.</p>
+                <p>
+                    Te invitamos a acceder a nuestra plataforma en línea para agendar tus citas de inspección, consultar el estado de tus certificados o ingresar como aspirante.
+                </p>
 
-                    </article>
+                <p>
+                    Por medio de nuestro WhatsApp institucional y nuestros canales de atención, puedes resolver todas tus dudas de forma rápida y sencilla.
+                </p>
 
-                    <article>
+                <p>
+                    Diseñado especialmente para brindarte el mejor servicio. ¡Haz parte de nosotros!
+                </p>
 
-                        <h3>Compromiso con el Cliente</h3>
-
-                        <p>
-                            Nuestro compromiso es ofrecer un servicio transparente, eficiente
-                            y enfocado en la seguridad y satisfacción de nuestros clientes.
-                        </p>
-
-                    </article>
-                    <img class="imagen-certi" src="img/WhatsApp-Image-2023-05-05-at-11.41.32-AM-768x1024.jpeg"
-                        alt="atencion al cliente" />
-
-
-
-
-
-
-
-
-                    <p>
-
-                        "Certiredes nació con el propósito de brindar seguridad y confianza en las instalaciones de gas
-                        domiciliario y empresarial. Con más de dos décadas de experiencia, hemos consolidado un equipo
-                        de
-                        profesionales certificados, comprometidos con la prevención de riesgos y la protección de la
-                        vida.
-                        Nuestra labor no se limita únicamente a realizar inspecciones, sino a generar conciencia en cada
-                        usuario
-                        sobre la importancia de la seguridad.
-                        Trabajamos bajo valores como la responsabilidad, la honestidad y el compromiso social, los
-                        cuales nos
-                        han permitido consolidarnos como una empresa de referencia en el suroccidente colombiano."
-                    </p>
-                </section>
-
-
-
-                
-                <div class="galeria">
-
-                   <h2>Principales sedes son</h2>
-
-                    <div>
-                        <img class="card"src="img/cali.webp" alt="Cali" class="imagenes">
-                        <p>Cali</p>
-                    </div>
-
-                    <div>
-                        <img class="card" src="img/manizales.jpg" alt="Manizales" class="imagenes">
-                        <p>Manizales</p>
-                    </div>
-
-                    <div>
-                        <img class="card"  src="img/quindio.jpg" alt="Quindio" class="imagenes">
-                        <p>Quindío</p>
-                    </div>
-                    <div>
-                        <img class="card"src="img/pereira.jpg" alt="Quindio" class="imagenes">
-                        <p>pereira</p>
-                    </div>
-
+                <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                    <a href="acceso.html" class="btn-registro" style="text-decoration: none; display: inline-block; text-align: center;">
+                        🔐 Ingresar al Portal
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=573001234567&text=Hola,%20solicito%20informacion" target="_blank" class="btn-registro" style="background-color: #28a745; text-decoration: none; display: inline-block; text-align: center;">
+                        💬 WhatsApp
+                    </a>
                 </div>
             </div>
 
-
-
-
-                <div class="aside-container">
-                    <aside>
-                        <h2>HOLA BENVENIDOS AQUI ENCONTRARAS SOLUCIONES PARA TUS REQUERIMIENTOS</h2>
-
-                        <p>
-                            miercoles 24 de septiembre te invitamos a que hagas parte de nuestro servicio obtendras un
-                            20% de
-                            descuento en tu factura de gas y un 12 % en nuestra revision periodica y en el
-                            amnetnimiento,
-                            tambien te invitamos aver nuestro contenido y que hacer ante una eventual emergencia, esta
-                            informacion puede slavar vidas ati y alos tuyos, no te la perdas
-                        </p>
-
-
-
-
-
-
-
-                        <h2>YA VISTE LO NUEVO DE CERTIREDES HAS PARTE DE NOSOTROS</h2>
-
-
-                        <p>
-                            ESTE 30 de septiembre se inician convocatorias para personal nuevo, has parte de nustra gran
-                            empresa, que te geenra excelent estabilidad laboral y beneficios no te pierdas esta
-                            oportunidad de
-                            hacer parte de nosotros e iniciar un nuevo camino, somos uan empresa pensada paar las
-                            persoans
-                        </p>
-                    </aside>
-                
-
-
-
-
-            </div>
-
-        </div>
-
-
-
-        <button id="btnTop"> Volver arriba</button>
-
+            <img class="img-contacto" src="img/atencion.png" alt="Atención al cliente Certiredes">
+        </section>
     </main>
 
-    <footer>
+    <footer class="footer">
+        <div class="footer-contenido">
+            <div class="footer-seccion">
+                <img class="imagen1" src="img/nuevologo2.png" alt="Logo Certiredes">
+                <h3>Certiredes</h3>
 
-        <div class="footer">
-
-
-            <div class="celular">
-                <h2>LINEA DE ATENCION</h2>
-                <h3>CELULAR</h3>
-                <p> +57 31536701707</p>
+                <p>Especialistas en inspección y certificación de redes de gas, cumpliendo con la normativa vigente.</p>
+                <p>📍 Calle 52B Norte #57-96</p>
+                <p>📞 300 123 4567</p>
+                <p>📧 contacto@certiredes.com</p>
             </div>
 
-            <div class="fijo">
-                <h2>TELEFONO FIJO</h2>
-
-                <P>760046</P>
+            <div class="footer-seccion">
+                <h2>Enlaces</h2>
+                <ul>
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="servicios.html">SERVICIOS</a></li>
+                    <li><a href="quienes.html">QUIÉNES SOMOS</a></li>
+                    <li><a href="acceso.html">PORTAL CERTIREDES</a></li>
+                </ul>
             </div>
 
-            <div class="ubicacion">
+            <div class="footer-seccion">
+                <h2>Síguenos</h2>
 
-                <h2>NUESTRA UBICACION ES:</h2>
-                <p>direccion</p>
-                <p>calle 23A Norte #2N-33</p>
-                <P>estamos ubicados en la ciudad de CALI</P>
-            </div>
-            <div>
-                <img src="img/gdo.png" alt="imagen gdo">
-                <P> + 98.000 Revisiones Periodicas </P>
-            </div>
+                <div class="redes">
+                    <div>
+                        Facebook
+                        <img src="img/facebook3.png" alt="Facebook">
+                    </div>
 
-            <div class="hecho">
-                <p>&copy; 2025-CERTI-REDES </p>
-                </p> HECHO POR STIVEN QUIROGA</p>
+                    <div>
+                        Instagram 
+                        <img src="img/instagram3.png" alt="Instagram">
+                    </div>
+
+                    <div>
+                        WhatsApp 
+                        <img src="img/whatsapp3.png" alt="WhatsApp">
+                    </div>
+                </div>
+
+                <div class="aliado">
+                    <h2>Aliado</h2>
+                    <img src="img/gdo.png" alt="Gases de Occidente" class="aliado">
+                </div>
             </div>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <div class="footer-copy">
+            © 2026 Certiredes - Todos los derechos reservados. Hecho por Stiven Quiroga.
+        </div>
+    </footer>
 </body>
 
 </html>

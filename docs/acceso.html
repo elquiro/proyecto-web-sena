@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso - Certiredes</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <header id="inicio">
+        <div>
+            <img class="imagen1" src="img/nuevologo2.png" alt="Logo Certiredes">
+        </div>
+
+        <div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="servicios.html">SERVICIOS</a></li>
+                    <li><a href="quienes.html">QUIÉNES SOMOS</a></li>
+                    <li><a href="acceso.html">PORTAL CERTIREDES</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="portal-comun">
+        <h1>Acceso</h1>
+        <p>Ingresa o regístrate para atender tu solicitud</p>
+    </div>
+
+    <main>
+        <div class="acceso">
+            <img src="img/nuevologo.png" alt="Logo Certiredes" class="logo">
+            <h2>Iniciar Sesión</h2>
+            <p>Ingrese sus credenciales para acceder al portal de servicios</p>
+        </div>
+
+        <section class="acceso-portal">
+
+            <div class="login-box">
+                <form class="registro" onsubmit="login(event)">
+
+                    <label>Correo electrónico:</label>
+                    <input type="email" id="correo" name="correo" required>
+
+                    <label>Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+
+                    <button class="btn" type="button" onclick="verPassword()">
+                        👁 Mostrar
+                    </button>
+
+                    <button class="btn" type="submit">Iniciar sesión</button>
+
+                </form>
+            </div>
+
+            <div class="registro-box">
+                <h3>¿No tienes cuenta?</h3>
+                <p class="p-alineacion">Regístrate en nuestro portal para consultar tus certificados y solicitar inspecciones técnicas de gas natural.</p>
+                <a href="seleccionar-registro.html" class="btn-registro">Registrarme ahora</a>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+
+        <div class="footer-contenido">
+
+            <div class="footer-seccion">
+                <img class="imagen1" src="img/nuevologo2.png" alt="Logo Certiredes">
+                <h3>Certiredes</h3>
+
+                <p>Especialistas en inspección y certificación de redes de gas, cumpliendo con la normativa vigente.</p>
+                <p>📍 Calle 52B Norte #57-96</p>
+                <p>📞 300 123 4567</p>
+                <p>📧 contacto@certiredes.com</p>
+            </div>
+
+            <div class="footer-seccion">
+                <h2>Enlaces</h2>
+                <ul>
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="servicios.html">SERVICIOS</a></li>
+                    <li><a href="quienes.html">QUIÉNES SOMOS</a></li>
+                    <li><a href="acceso.html">PORTAL CERTIREDES</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-seccion">
+                <h2>Síguenos</h2>
+
+                <div class="redes">
+                    <div>
+                        Facebook
+                        <img src="img/facebook3.png" alt="Facebook">
+                    </div>
+
+                    <div>
+                        Instagram 
+                        <img src="img/instagram3.png" alt="Instagram">
+                    </div>
+
+                    <div>
+                        WhatsApp 
+                        <img src="img/whatsapp3.png" alt="WhatsApp">
+                    </div>
+                </div>
+
+                <div class="aliado">
+                    <h2>Aliado</h2>
+                    <img src="img/gdo.png" alt="Gases de Occidente" class="aliado">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-copy">
+            <h2>© 2026 Certiredes - Todos los derechos reservados. Hecho por Stiven Quiroga.</h2>
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
