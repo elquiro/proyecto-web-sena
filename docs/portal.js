@@ -357,7 +357,7 @@ function renderSolicitudes() {
         <p style="color: #2e7d32; font-weight: bold; margin-bottom: 8px;">
             ✅ Inspección Aprobada y Certificada
         </p>
-        <a href="docs/certificado.html?nombre=${encodeURIComponent(s.clienteNombre || usuario.nombre)}&servicio=${encodeURIComponent(s.tipo)}" 
+        <a href="certificado.html?nombre=${encodeURIComponent(s.clienteNombre || usuario.nombre)}&servicio=${encodeURIComponent(s.tipo)}" 
            target="_blank" 
            class="btn" 
            style="background-color: #28a745; color: white; text-decoration: none; display: inline-block; padding: 8px 12px; border-radius: 4px; font-weight: bold;">
