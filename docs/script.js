@@ -13,7 +13,7 @@ function guardarUsuario(e){
 
     let usuario = {
         id: Date.now(), // 🔥 IMPORTANTE
-        correo: document.querySelector('[name="correo"]').value,
+        correo: document.querySelector('[name="correo"]').value.trim().toLowerCase(),
         telefono: document.querySelector('[name="telefono"]').value,
         password: document.querySelector('[name="password"]').value,
         tipo: tipo
@@ -46,6 +46,18 @@ function guardarUsuario(e){
         usuario.interes = document.querySelector('[name="interes"]')?.value || "administrativo";
     }
 
+
+let existe = usuarios.find(u => u.correo === usuario.correo);
+
+if(existe){
+    alert("Este correo ya está registrado");
+    return;
+}
+
+
+
+
+
     usuarios.push(usuario);
 
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
@@ -55,6 +67,8 @@ function guardarUsuario(e){
     alert("¡Usuario registrado con éxito!");
 
     e.target.reset();
+
+    window.location.href = "acceso.html";
 }
 
 

@@ -93,6 +93,17 @@ h2, h3, h4, h5 {
     text-align: center;
 }
 
+
+.cambiar-tipo{
+    padding: 10px;
+    margin: 10px;
+}
+
+.cambiar-tipo a{
+    text-align: center;
+}
+
+
 p{
     font-family:'Segoe UI';
     font-size: 16px;
@@ -1357,36 +1368,6 @@ input:focus, select:focus {
     transition: 0.3s;
 }
 
-.notificacion:hover {
-    transform: scale(1.01);
-}
-
-.aprobado {
-    border-left: 6px solid #28a745;
-}
-
-.proceso-noti {
-    border-left: 6px solid #ffc107;
-}
-
-.rechazado {
-    border-left: 6px solid #dc3545;
-}
-
-.recordatorio {
-    border-left: 6px solid #007bff;
-}
-
-.notificacion h3 {
-    margin: 0;
-    padding: 0;
-    text-align: left;
-}
-
-.notificacion span {
-    font-size: 12px;
-    color: gray;
-}
 
 .acciones a {
     text-decoration: none;
