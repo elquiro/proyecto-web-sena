@@ -10,6 +10,69 @@ if (!usuario) {
 // Variable global para rastrear la vista actual
 let vistaActualGlobal = "mis-solicitudes";
 
+// =========================================================================
+// 🎯 GUARDAR SOLICITUD (SISTEMA HÍBRIDO: 4 automáticas, de ahí en adelante manuales)
+// =========================================================================
+function guardarSolicitud(tipo) {
+    let solicitudes = JSON.parse(localStorage.getItem("solicitudes")) || [];
+    let totalSolicitudes = solicitudes.length;
+
+    let estadoInicial = "";
+    let inspectorAsignado = "";
+    const nuevaId = Date.now();
+
+    if (totalSolicitudes < 4) {
+        const inspectoresGenericos = [
+            "Roberto Cárdenas",
+            "Diana Marcela Valencia",
+            "Mauricio Benítez"
+        ];
+        let aleatorio = Math.floor(Math.random() * inspectoresGenericos.length);
+        inspectorAsignado = inspectoresGenericos[aleatorio];
+        estadoInicial = "En proceso"; 
+    } else {
+        inspectorAsignado = "Sin asignar";
+        estadoInicial = "Pendiente"; 
+    }
+
+    const nuevaSolicitud = {
+        id: nuevaId,
+        tipo: tipo,
+        estado: estadoInicial,
+        fecha: new Date().toLocaleDateString(),
+        cliente: usuario.correo,
+        clienteNombre: usuario.nombre || usuario.correo,
+        inspector: inspectorAsignado,
+        proveedor: "Certiredes GAS"
+    };
+
+    solicitudes.push(nuevaSolicitud);
+    localStorage.setItem("solicitudes", JSON.stringify(solicitudes));
+
+    if (estadoInicial === "En proceso") {
+        alert("¡Solicitud creada! Automatizada y asignada a: " + inspectorAsignado);
+
+        setTimeout(() => {
+            let solicitudesActuales = JSON.parse(localStorage.getItem("solicitudes")) || [];
+            let index = solicitudesActuales.findIndex(s => s.id === nuevaId);
+            
+            if (index !== -1 && solicitudesActuales[index].estado === "En proceso") {
+                solicitudesActuales[index].estado = "Finalizado";
+                localStorage.setItem("solicitudes", JSON.stringify(solicitudesActuales));
+                
+                if (vistaActualGlobal === "mis-solicitudes") {
+                    renderSolicitudes();
+                }
+            }
+        }, 20000);
+
+    } else {
+        alert("¡Solicitud creada! Quedó Pendiente para asignación manual en el panel del inspector.");
+    }
+
+    cambiarVista("mis-solicitudes");
+}
+
 // ===============================
 // 👤 MOSTRAR DATOS DEL USUARIO
 // ===============================
@@ -32,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else if (usuario.tipo === "inspector") {
         if (mensaje) mensaje.innerText = "Supervisa y valida inspecciones.";
         mostrarMenu("menuInspector");
-        cambiarVista("solicitudes-asignadas"); // Carga por defecto las disponibles
+        cambiarVista("solicitudes-asignadas");
     } else if (usuario.tipo === "aspirante") {
         if (mensaje) mensaje.innerText = "Consulta tu proceso de ingreso.";
         mostrarMenu("menuAspirante");
@@ -59,7 +122,7 @@ function cambiarVista(vista) {
     const contenedor = document.getElementById("contenidoDinamico");
     if (!contenedor) return;
 
-    contenedor.innerHTML = ""; // Limpieza de vista previa
+    contenedor.innerHTML = ""; 
 
     let contenido = "";
 
@@ -97,7 +160,7 @@ function cambiarVista(vista) {
     else if (vista === "perfil-proveedor") {
         contenido = `
             <h3>Perfil de la Empresa / Proveedor</h3>
-            <div class="card-portal" style="background:#fff; padding:20px; border-radius:8px; border: 1px solid #ccc;">
+            <div class="card-portal" style="background:#fff; padding:20px; border-radius:8px; border: 1px solid #ccc; color:#333;">
                 <p><strong>Empresa:</strong> ${usuario.empresa || 'No especificada'}</p>
                 <p><strong>Responsable:</strong> ${usuario.responsable || usuario.nombre}</p>
                 <p><strong>Servicio que provee a Certiredes:</strong> ${usuario.servicio || 'Suministro / Mantenimiento'}</p>
@@ -109,7 +172,7 @@ function cambiarVista(vista) {
     } else if (vista === "servicios-disponibles") {
         contenido = `
             <h3>Órdenes de Servicio Interno (Certiredes)</h3>
-            <p>Servicios contratados por Certiredes a tu empresa (ej. Mantenimiento de equipos, soporte informático, insumos).</p>
+            <p>Servicios contratados por Certiredes a tu empresa.</p>
             <div id="listaSolicitudes"></div>
         `;
     } else if (vista === "historial-servicios") {
@@ -155,28 +218,49 @@ function cambiarVista(vista) {
                 <p><strong>Teléfono:</strong> ${usuario.telefono || 'Sin registrar'}</p>
                 <p><strong>Nivel de estudios:</strong> ${usuario.estudios ? usuario.estudios.toUpperCase() : 'NO ESPECIFICADO'}</p>
                 <p><strong>Área a la que se postula:</strong> <span style="color:#007bff; font-weight:bold;">${areaReal}</span></p>
+                
+                <hr style="margin:15px 0; border:0; border-top:1px solid #eee;">
+                <button class="btn" onclick="habilitarEdicionAspirante()" style="background:#ffc107; color:#333; padding:8px 15px; border:none; border-radius:4px; cursor:pointer; font-weight:bold;">
+                    ✏️ Actualizar mis datos
+                </button>
             </div>
+            <div id="formEdicionAspirante" style="margin-top:15px;"></div>
         `;
-    } else if (vista === "postulacion") {
-        let areasNombre = {
-            "administrativo": "Administrativo / Finanzas",
-            "atencion": "Atención al Cliente",
-            "tecnico": "Servicio Técnico",
-            "operativo": "Operativo (Instalaciones y Campo)"
-        };
-        let areaReal = areasNombre[usuario.interes] || usuario.interes || "Administrativo / Finanzas";
-
+    
+        // ... esto es lo que debes buscar en tu archivo:
+    }else if (vista === "postulacion") {
+        let estado = usuario.estadoPostulacion || "En Revisión General de Hoja de Vida";
+        
         contenido = `
             <h3>Estado del Proceso de Selección</h3>
             <div style="background:#fff; color:#333; padding:20px; border-radius:8px; border:1px solid #ccc; line-height: 1.8;">
                 <p><strong>Candidato:</strong> ${usuario.nombre}</p>
-                <p><strong>Área / Cargo solicitado:</strong> <span style="font-weight:bold; color:#007bff;">${areaReal}</span></p>
-                <p><strong>Área Evaluadora:</strong> Departamento Administrativo y Gestión Humana</p>
-                <p><strong>Estado actual:</strong> <span style="background:#fff3cd; color:#856404; padding:4px 8px; border-radius:4px; font-weight:bold;">En Revisión General de Hoja de Vida</span></p>
-                <hr style="margin:15px 0; border:0; border-top:1px solid #eee;">
-                <p>El equipo <strong>Administrativo</strong> de Certiredes está validando tu perfil académico para la vacante de <strong>${areaReal}</strong>.</p>
+                <p><strong>Estado actual:</strong> 
+                    <span style="background:${estado === 'Citado a Entrevista' ? '#d4edda' : '#fff3cd'}; 
+                                 color:${estado === 'Citado a Entrevista' ? '#155724' : '#856404'}; 
+                                 padding:4px 8px; border-radius:4px; font-weight:bold;">
+                        ${estado}
+                    </span>
+                </p>
+                
+                ${estado === 'Citado a Entrevista' ? `
+                    <div style="margin-top:20px; padding:15px; background:#e2f3ff; border-left: 5px solid #007bff;">
+                        <h4 style="margin-top:0;">📅 Cita de Entrevista Confirmada</h4>
+                        <p>Te esperamos para la entrevista presencial:</p>
+                        <ul>
+                            <li><strong>Fecha:</strong> ${usuario.fechaEntrevista}</li>
+                            <li><strong>Hora:</strong> ${usuario.horaEntrevista}</li>
+                            <li><strong>Entrevistador:</strong> ${usuario.entrevistador}</li>
+                            <li><strong>Lugar:</strong> Oficina de Gestión Humana, Certiredes Sede Principal.</li>
+                        </ul>
+                    </div>
+                ` : `
+                    <p>El equipo <strong>Administrativo</strong> de Certiredes está validando tu perfil. Por favor, mantente atento a esta sección para futuras actualizaciones.</p>
+                `}
             </div>
         `;
+    
+    
     } else if (vista === "requisitos") {
         let areasNombre = {
             "administrativo": "Administrativo / Finanzas",
@@ -191,12 +275,12 @@ function cambiarVista(vista) {
             <div style="background:#fff; color:#333; padding:20px; border-radius:8px; border:1px solid #ccc; line-height: 1.8;">
                 <p>Adjunta tus documentos para que el <strong>Área Administrativa</strong> continúe con el estudio de tu perfil para el área de <strong>${areaReal}</strong>:</p>
                 
-                <form onsubmit="alert('¡Documentos enviados con éxito al Área Administrativa!'); return false;" style="margin-top:15px;">
+                <form onsubmit="subirDocumentosAspirante(event)" style="margin-top:15px;">
                     <label><strong>Adjuntar Hoja de Vida (PDF):</strong></label><br>
-                    <input type="file" required style="margin:10px 0;"><br><br>
+                    <input type="file" id="archivoHdV" required style="margin:10px 0;"><br><br>
 
                     <label><strong>Adjuntar Documento de Identidad / Certificados:</strong></label><br>
-                    <input type="file" style="margin:10px 0;"><br><br>
+                    <input type="file" id="archivoDoc" style="margin:10px 0;"><br><br>
 
                     <button type="submit" class="btn" style="background:#28a745; color:white; padding:8px 15px; border:none; border-radius:4px; cursor:pointer;">
                         📤 Adjuntar y Enviar a Gestión Humana
@@ -208,34 +292,9 @@ function cambiarVista(vista) {
 
     contenedor.innerHTML = contenido;
 
-    // Ejecutar renderizado si la vista requiere lista
     if (["mis-solicitudes", "solicitudes-asignadas", "en-proceso", "historial-inspecciones", "servicios-disponibles", "historial-servicios"].includes(vista)) {
         renderSolicitudes();
     }
-}
-
-// ===============================
-// 💾 GUARDAR SOLICITUD (CLIENTE)
-// ===============================
-function guardarSolicitud(tipo) {
-    let solicitudes = JSON.parse(localStorage.getItem("solicitudes")) || [];
-
-    const nueva = {
-        id: Date.now(),
-        tipo: tipo,
-        estado: "Pendiente",
-        fecha: new Date().toLocaleDateString(),
-        cliente: usuario.correo,
-        clienteNombre: usuario.nombre || usuario.correo,
-        inspector: "Sin asignar",
-        proveedor: "proveedor@test.com"
-    };
-
-    solicitudes.push(nueva);
-    localStorage.setItem("solicitudes", JSON.stringify(solicitudes));
-
-    alert("Solicitud creada correctamente.");
-    cambiarVista("mis-solicitudes");
 }
 
 // ===============================
@@ -250,44 +309,29 @@ function renderSolicitudes() {
     lista.innerHTML = "";
     let filtradas = [];
 
-    // 1. ROL CLIENTE
     if (usuario.tipo === "cliente") {
         filtradas = solicitudes.filter(s => s.cliente === usuario.correo);
     } 
-    
-    // 2. ROL INSPECTOR
     else if (usuario.tipo === "inspector") {
+        let correoInspector = usuario.correo;
+        let nombreInspector = usuario.nombre || "";
+
         if (vistaActualGlobal === "solicitudes-asignadas") {
-            filtradas = solicitudes.filter(s => s.estado === "Pendiente");
+            filtradas = solicitudes.filter(s => s.estado === "Pendiente" && (s.inspector === "Sin asignar" || s.inspector === ""));
         } else if (vistaActualGlobal === "en-proceso") {
-            filtradas = solicitudes.filter(s => s.estado === "En proceso" && s.inspector === usuario.correo);
+            filtradas = solicitudes.filter(s => s.estado === "En proceso" && (s.inspector === correoInspector || s.inspector === nombreInspector));
         } else if (vistaActualGlobal === "historial-inspecciones") {
             filtradas = solicitudes
-                .filter(s => s.estado === "Finalizado" && s.inspector === usuario.correo)
-                .reverse()
-                .slice(0, 5);
+                .filter(s => s.estado === "Finalizado" && (s.inspector === correoInspector || s.inspector === nombreInspector))
+                .reverse();
         } else {
             filtradas = solicitudes.filter(s => s.estado === "Pendiente");
         }
-    } 
-    
-    // 3. ROL PROVEEDOR
+    }
     else if (usuario.tipo === "proveedor") {
         let ordenesProveedor = JSON.parse(localStorage.getItem("ordenesProveedor")) || [
-            {
-                id: 101,
-                servicio: "Mantenimiento Preventivo de Equipos de Cómputo",
-                solicitante: "Certiredes - Área de TI",
-                fecha: new Date().toLocaleDateString(),
-                estado: "En proceso"
-            },
-            {
-                id: 102,
-                servicio: "Calibración de Manómetros y Detectores de Gas",
-                solicitante: "Certiredes - Área Técnica",
-                fecha: new Date().toLocaleDateString(),
-                estado: "En proceso"
-            }
+            { id: 101, servicio: "Mantenimiento Preventivo de Equipos de Cómputo", solicitante: "Certiredes - Área de TI", fecha: new Date().toLocaleDateString(), estado: "En proceso" },
+            { id: 102, servicio: "Calibración de Manómetros y Detectores de Gas", solicitante: "Certiredes - Área Técnica", fecha: new Date().toLocaleDateString(), estado: "En proceso" }
         ];
 
         if (vistaActualGlobal === "servicios-disponibles") {
@@ -322,12 +366,9 @@ function renderSolicitudes() {
         });
 
         lista.innerHTML = html;
-        return; // Finaliza para el proveedor
+        return; 
     }
 
-    // =========================================================================
-    // RENDERIZADO GENERAL PARA CLIENTE E INSPECTOR
-    // =========================================================================
     if (filtradas.length === 0) {
         lista.innerHTML = "<p style='padding: 10px; color: #666;'>No hay solicitudes registradas en esta sección.</p>";
         return;
@@ -353,18 +394,18 @@ function renderSolicitudes() {
                     ` : ""}
 
                     ${s.estado === "Finalizado" ? `
-    <div style="margin-top: 10px; padding: 12px; background-color: #e8f5e9; border: 1px solid #c8e6c9; border-radius: 5px;">
-        <p style="color: #2e7d32; font-weight: bold; margin-bottom: 8px;">
-            ✅ Inspección Aprobada y Certificada
-        </p>
-        <a href="certificado.html?nombre=${encodeURIComponent(s.clienteNombre || usuario.nombre)}&servicio=${encodeURIComponent(s.tipo)}" 
-           target="_blank" 
-           class="btn" 
-           style="background-color: #28a745; color: white; text-decoration: none; display: inline-block; padding: 8px 12px; border-radius: 4px; font-weight: bold;">
-            📄 Ver / Descargar Certificado de ${s.tipo} (PDF)
-        </a>
-    </div>
-` : ""}
+                        <div style="margin-top: 10px; padding: 12px; background-color: #e8f5e9; border: 1px solid #c8e6c9; border-radius: 5px;">
+                            <p style="color: #2e7d32; font-weight: bold; margin-bottom: 8px;">
+                                ✅ Inspección Aprobada y Certificada
+                            </p>
+                            <a href="certificado.html?nombre=${encodeURIComponent(s.clienteNombre || usuario.nombre)}&servicio=${encodeURIComponent(s.tipo)}" 
+                               target="_blank" 
+                               class="btn" 
+                               style="background-color: #28a745; color: white; text-decoration: none; display: inline-block; padding: 8px 12px; border-radius: 4px; font-weight: bold;">
+                                📄 Ver / Descargar Certificado de ${s.tipo} (PDF)
+                            </a>
+                        </div>
+                    ` : ""}
                 ` : ""}
 
                 ${usuario.tipo === "inspector" ? `
@@ -386,6 +427,84 @@ function renderSolicitudes() {
 
     lista.innerHTML = html;
 }
+// ===============================
+// ✍️ FUNCIONES ESPECÍFICAS DE ASPIRANTE
+// ===============================
+function habilitarEdicionAspirante() {
+    const contenedorEdicion = document.getElementById("formEdicionAspirante");
+    if (!contenedorEdicion) return;
+
+    contenedorEdicion.innerHTML = `
+        <div style="background:#f9f9f9; padding:15px; border-radius:8px; border:1px solid #ddd; color:#333; margin-top:10px;">
+            <h4>Editar Datos Personales</h4>
+            <label>Nombre:</label><br>
+            <input type="text" id="editNombre" value="${usuario.nombre || ''}" style="width:100%; padding:6px; margin:5px 0 10px 0;"><br>
+            
+            <label>Teléfono:</label><br>
+            <input type="text" id="editTelefono" value="${usuario.telefono || ''}" style="width:100%; padding:6px; margin:5px 0 10px 0;"><br>
+
+            <label>Nivel de Estudios:</label><br>
+            <input type="text" id="editEstudios" value="${usuario.estudios || ''}" style="width:100%; padding:6px; margin:5px 0 10px 0;"><br>
+
+            <button class="btn" onclick="guardarEdicionAspirante()" style="background:#28a745; color:white; padding:8px 12px; border:none; border-radius:4px; cursor:pointer;">
+                💾 Guardar Cambios
+            </button>
+        </div>
+    `;
+}
+
+function guardarEdicionAspirante() {
+    usuario.nombre = document.getElementById("editNombre").value;
+    usuario.telefono = document.getElementById("editTelefono").value;
+    usuario.estudios = document.getElementById("editEstudios").value;
+
+    localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
+
+    let listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    listaUsuarios = listaUsuarios.map(u => {
+        if (u.correo === usuario.correo) {
+            u.nombre = usuario.nombre;
+            u.telefono = usuario.telefono;
+            u.estudios = usuario.estudios;
+        }
+        return u;
+    });
+    localStorage.setItem("usuarios", JSON.stringify(listaUsuarios));
+
+    alert("¡Datos actualizados con éxito!");
+    cambiarVista("perfil-aspirante");
+}
+
+function subirDocumentosAspirante(event) {
+    event.preventDefault();
+    let archivoHdV = document.getElementById("archivoHdV").value;
+    if (!archivoHdV) {
+        alert("Por favor selecciona tu Hoja de Vida.");
+        return;
+    }
+
+    // 1. Cambiamos estado a 'En Revisión'
+    usuario.estadoPostulacion = "En Revisión General de Hoja de Vida";
+    localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
+
+    alert("¡Documentos enviados con éxito al Departamento Administrativo!");
+
+    // 2. Simulación: A los 8 segundos llega la citación
+    setTimeout(() => {
+        usuario.estadoPostulacion = "Citado a Entrevista";
+        usuario.fechaEntrevista = "2026-08-15";
+        usuario.horaEntrevista = "09:00 AM";
+        usuario.entrevistador = "Dra. Martha Lucía Rodríguez";
+        localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
+        
+        // Si sigue en la vista de postulación, refrescamos automáticamente
+        if (vistaActualGlobal === "postulacion") {
+            cambiarVista("postulacion");
+        }
+    }, 8000);
+
+    cambiarVista("postulacion");
+}
 
 // ===============================
 // ✍️ INSPECTOR ASIGNA Y PASA A "EN PROCESO"
@@ -395,7 +514,7 @@ function tomarSolicitud(id) {
     
     solicitudes = solicitudes.map(s => {
         if (s.id === id) {
-            s.inspector = usuario.correo;
+            s.inspector = usuario.nombre || usuario.correo;
             s.estado = "En proceso";
         }
         return s;

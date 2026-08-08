@@ -45,6 +45,8 @@
             </div>
         </div>
 
+        
+
         <section class="portal-menu">
 
             <div id="menuCliente" class="menu" style="display:none;">
@@ -59,7 +61,70 @@
                         Mis solicitudes
                     </a>
                 </div>
+                
             </div>
+
+           <!-- SECCIÓN INFORMATIVA DE TARIFAS Y PAGOS -->
+<div class="info-tarifas-portal" style="background: #fdfdfd; border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin-top: 15px; text-align: left;">
+    <h3 style="color: #004080; margin-bottom: 10px; text-align: center;">Tarifas Autorizadas y Medios de Pago</h3>
+    <p style="font-size: 0.95em; color: #555; text-align: center; margin-bottom: 15px;">
+        Consulte los valores base de nuestros servicios antes de generar su solicitud en el botón superior de <strong>"Nueva solicitud"</strong>.
+    </p>
+
+    <ul style="list-style: none; padding: 0; font-size: 0.9em; color: #333;">
+        <li style="padding: 8px 0; border-bottom: 1px solid #eee;">✔ <strong>Revisión periódica:</strong> $120.000 COP</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid #eee;">✔ <strong>Red nueva:</strong> $200.000 COP</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid #eee;">✔ <strong>Sin vínculo contractual:</strong> $160.000 COP</li>
+        <li style="padding: 8px 0; border-bottom: 1px solid #eee;">✔ <strong>Red vencida:</strong> $170.000 COP</li>
+    </ul>
+
+    <div style="margin-top: 15px; background: #eef5ff; padding: 10px; border-radius: 5px;">
+        <p style="margin: 0; font-size: 0.9em; color: #004080; font-weight: bold;">Métodos de pago habilitados:</p>
+        <p style="margin: 5px 0 0 0; font-size: 0.85em; color: #444;">
+            Efectivo contra entrega al técnico | Transferencia Bancaria (Bancolombia / Nequi) | PSE
+        </p>
+    </div>
+</div>
+
+<!-- SIMULADOR DE PAGO -->
+<div id="seccion-pago" style="margin-top: 15px; background: #fff; border: 1px solid #ccc; padding: 15px; border-radius: 8px;">
+    <h4 style="color: #004080; margin-bottom: 10px;">Simular Pasarela de Pago</h4>
+    
+    <label style="font-size: 0.9em; display: block; margin-bottom: 5px;">Seleccione su método para continuar:</label>
+    <select id="selectMetodo" style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc;">
+        <option value="transferencia">Transferencia Bancaria (Nequi / Bancolombia)</option>
+        <option value="pse">PSE (Pagos Seguros en Línea)</option>
+        <option value="efectivo">Pago contra entrega al técnico</option>
+    </select>
+
+    <button onclick="procesarPagoReal()" style="background: #28a745; color: white; border: none; padding: 10px 15px; width: 100%; border-radius: 4px; font-weight: bold; cursor: pointer;">
+        Pagar y Confirmar Solicitud
+    </button>
+</div>
+
+<!-- MENSAJE DE ÉXITO OCULTO QUE APARECE TRAS PAGAR -->
+<div id="resultadoPago" style="display: none; margin-top: 15px; background: #d4edda; color: #155724; padding: 15px; border-radius: 8px; text-align: center; border: 1px solid #c3e6cb;">
+    <h4>¡Pago y Solicitud Exitosos!</h4>
+    <p style="font-size: 0.9em; margin: 5px 0 0 0;">Su transacción ha sido procesada correctamente. El sistema ha generado su orden en la sección "Mis solicitudes".</p>
+</div>
+
+<script>
+function procesarPagoReal() {
+    const metodo = document.getElementById("selectMetodo").value;
+    
+    // Ocultar el simulador y mostrar el mensaje de éxito
+    document.getElementById("seccion-pago").style.display = "none";
+    document.getElementById("resultadoPago").style.display = "block";
+    
+    // Aquí puedes redirigirlo o dejarlo ver su solicitud procesada
+    console.log("Pago realizado con éxito mediante: " + metodo);
+}
+</script>
+
+
+    </section>
+
+</div>
 
             <div id="menuProveedor" class="menu" style="display:none;">
                 <div class="contenedor-servicios">

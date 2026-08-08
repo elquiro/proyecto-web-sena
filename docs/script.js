@@ -108,3 +108,20 @@ function verPassword() {
         input.type = "password";
     }
 }
+
+// Buscamos el botón de modo oscuro
+const botonModo = document.querySelector(".modo");
+
+if (botonModo) {
+    botonModo.addEventListener("click", function() {
+        // Alternamos una clase 'dark-mode' en todo el cuerpo de la página
+        document.body.classList.toggle("dark-mode");
+        
+        // Cambiamos el texto del botón dependiendo del estado
+        if (document.body.classList.contains("dark-mode")) {
+            botonModo.textContent = "CAMBIAR A MODO CLARO";
+        } else {
+            botonModo.textContent = "CAMBIAR A MODO OSCURO";
+        }
+    });
+}

@@ -51,8 +51,17 @@
                     <label for="direccion">Dirección:</label><br>
                     <input type="text" id="direccion" name="direccion" placeholder="Dirección (opcional)"><br><br>
 
-                    <label for="ciudad">Ciudad:</label><br>
-                    <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad" required><br><br>
+                    <label for="ciudad">Ciudad:</label><br> 
+                    <select id="ciudad" name="ciudad" required>
+                        <option value="">Selecciona la Ciudad</option>
+                        <option value="CALI">CALI</option>
+                        <option value="MANIZALEZ">MANIZALES</option>
+                        <option value="PEREIRA">PEREIRA </option>
+                        <option value="ARMENIA">ARMENIA</option>
+
+                    </select>
+
+                    <br><br>
 
                     <label for="correo">Correo electrónico:</label><br>
                     <input type="email" id="correo" name="correo" required><br><br>
