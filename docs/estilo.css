@@ -76,9 +76,12 @@ img{
     width: 500px;
 }
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 5aa59261b86f90ba7b83b70ec2e5a81d1f937ed1
 .titulo {
     font-size: 26px;
     text-align: center;
@@ -224,6 +227,7 @@ button {
     min-width: 300px;
     margin: 0 auto;
 }
+
 
 
 section {
