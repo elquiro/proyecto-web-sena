@@ -4,9 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal - Certiredes</title>
+    <title>Portal - Certi-Redes</title>
     <link rel="stylesheet" href="estilo.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        /* Estructura en Grid de dos columnas */
+        .portal-layout {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+            align-items: start;
+        }
+
+        @media (max-width: 900px) {
+            .portal-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -22,95 +40,104 @@
                     <li><a href="index.html">INICIO</a></li>
                     <li><a href="servicios.html">SERVICIOS</a></li>
                     <li><a href="quienes.html">QUIÉNES SOMOS</a></li>
-                    <li><a href="acceso.html">PORTAL CERTIREDES</a></li>
+                    <li><a href="acceso.html">PORTAL CERTI-REDES</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <div class="portal-comun">
-        <h1>PORTAL CERTIREDES</h1>
+        <h1>PORTAL CERTI-REDES</h1>
         <h2>Bienvenido <span id="usuarioNombre"></span></h2>
         <p id="mensajeRol"></p>
         <p>Gestiona tus servicios de forma rápida y segura</p>
     </div>
 
+    <!-- CONTENEDOR PRINCIPAL EN DOS COLUMNAS -->
     <main class="portal-layout">
 
-        <div class="barra-superior">
-            <img src="img/nuevologo.png" alt="Logo Certiredes Small">
-            <div>
-                <img src="img/portal.png" alt="Icono Portal">
-                <button onclick="logout()" class="btn">Cerrar sesión</button>
+        <!-- COLUMNA IZQUIERDA (Sidebar limpia y unificada solo con controles de navegación) -->
+        <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+            
+            <!-- BLOQUE SUPERIOR -->
+            <div class="barra-superior" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 15px; width: 100%; max-width: 350px; margin-bottom: 15px; background: #fff; padding: 15px; border: 1px solid #e0e0e0; border-radius: 8px; box-sizing: border-box;">
+                
+                <img src="img/nuevologo.png" alt="Logo Certi-Redes Small" style="max-width: 120px; display: block; margin: 0 auto;">
+                
+                <img src="img/portal.png" alt="Icono Portal" style="width: 100%; height: auto; border-radius: 6px; object-fit: cover;">
+                
+                <button onclick="cerrarSesion()" class="btn-cerrar-sesion"style="width: 100%; padding: 10px; background: #004080; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">Cerrar sesión</button>
             </div>
+
+            <!-- MENÚS DE CADA ROL -->
+            <section class="portal-menu" style="width: 100%; max-width: 350px;">
+
+                <div id="menuCliente" class="menu" style="display:none;">
+                    <div class="contenedor-servicios" style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+                        <a href="perfil.html" class="card" style="width: 100%; box-sizing: border-box; text-align: center;">Mi Perfil</a>
+
+                        <a href="#" class="card" onclick="cambiarVista('nueva-solicitud'); return false;" style="width: 100%; box-sizing: border-box; text-align: center;">
+                            Nueva solicitud
+                        </a>
+
+                        <a href="#" class="card" onclick="cambiarVista('mis-solicitudes'); return false;" style="width: 100%; box-sizing: border-box; text-align: center;">
+                            Mis solicitudes
+                        </a>
+                    </div>
+                </div>
+
+                <div id="menuProveedor" class="menu" style="display:none;">
+                    <div class="contenedor-servicios" style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+                        <a href="perfil.html" class="card" style="width: 100%; box-sizing: border-box; text-align: center;">Mi Perfil</a>
+
+                        <a href="#" class="card" onclick="cambiarVista('servicios-disponibles'); return false;" style="width: 100%; box-sizing: border-box; text-align: center;">
+                            Trabajos asignados
+                        </a>
+
+                        <a href="#" class="card" onclick="cambiarVista('historial-servicios'); return false;" style="width: 100%; box-sizing: border-box; text-align: center;">
+                            Historial
+                        </a>
+                    </div>
+                </div>
+
+                <div id="menuInspector" class="menu" style="display:none;">
+                    <div class="contenedor-servicios" style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+                        <a href="perfil.html" class="card" style="width: 100%; box-sizing: border-box; text-align: center;">Mi Perfil</a>
+
+                        <a href="#" class="card" onclick="cambiarVista('solicitudes-asignadas'); return false;" style="width: 100%; box-sizing: border-box; text-align: center;">
+                            Solicitudes asignadas
+                        </a>
+
+                        <a href="#" class="card" onclick="cambiarVista('en-proceso'); return false;" style="width: 100%; box-sizing: border-box; text-align: center;">
+                            En proceso
+                        </a>
+
+                        <a href="#" class="card" onclick="cambiarVista('historial-inspecciones'); return false;" style="width: 100%; box-sizing: border-box; text-align: center;">
+                            Historial
+                        </a>
+                    </div>
+                </div>
+
+                <div id="menuAspirante" class="menu" style="display:none;">
+                    <div class="contenedor-servicios" style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+                        <a href="#" class="card" onclick="cambiarVista('perfil-aspirante'); return false;" style="width: 100%; box-sizing: border-box; text-align: center;">
+                            Mi Perfil
+                        </a>
+                        <a href="#" class="card" onclick="cambiarVista('postulacion'); return false;" style="width: 100%; box-sizing: border-box; text-align: center;">
+                            Estado de Postulación
+                        </a>
+                        <a href="#" class="card" onclick="cambiarVista('requisitos'); return false;" style="width: 100%; box-sizing: border-box; text-align: center;">
+                            Requisitos de Ingreso
+                        </a>
+                    </div>
+                </div>
+
+            </section>
         </div>
 
-        <section class="portal-menu">
-
-            <div id="menuCliente" class="menu" style="display:none;">
-                <div class="contenedor-servicios">
-                    <a href="perfil.html" class="card">Mi Perfil</a>
-
-                    <a href="#" class="card" onclick="cambiarVista('nueva-solicitud'); return false;">
-                        Nueva solicitud
-                    </a>
-
-                    <a href="#" class="card" onclick="cambiarVista('mis-solicitudes'); return false;">
-                        Mis solicitudes
-                    </a>
-                </div>
-            </div>
-
-            <div id="menuProveedor" class="menu" style="display:none;">
-                <div class="contenedor-servicios">
-                    <a href="perfil.html" class="card">Mi Perfil</a>
-
-                    <a href="#" class="card" onclick="cambiarVista('servicios-disponibles'); return false;">
-                        Trabajos asignados
-                    </a>
-
-                    <a href="#" class="card" onclick="cambiarVista('historial-servicios'); return false;">
-                        Historial
-                    </a>
-                </div>
-            </div>
-
-            <div id="menuInspector" class="menu" style="display:none;">
-                <div class="contenedor-servicios">
-                    <a href="perfil.html" class="card">Mi Perfil</a>
-
-                    <a href="#" class="card" onclick="cambiarVista('solicitudes-asignadas'); return false;">
-                        Solicitudes asignadas
-                    </a>
-
-                    <a href="#" class="card" onclick="cambiarVista('en-proceso'); return false;">
-                        En proceso
-                    </a>
-
-                    <a href="#" class="card" onclick="cambiarVista('historial-inspecciones'); return false;">
-                        Historial
-                    </a>
-                </div>
-            </div>
-
-            <div id="menuAspirante" class="menu" style="display:none;">
-                <div class="contenedor-servicios">
-                    <a href="#" class="card" onclick="cambiarVista('perfil-aspirante'); return false;">
-                        Mi Perfil
-                    </a>
-                    <a href="#" class="card" onclick="cambiarVista('postulacion'); return false;">
-                        Estado de Postulación
-                    </a>
-                    <a href="#" class="card" onclick="cambiarVista('requisitos'); return false;">
-                        Requisitos de Ingreso
-                    </a>
-                </div>
-            </div>
-
-        </section>
-
-        <div id="contenidoDinamico" class="panel-contenido">
-            <p>Selecciona una opción del menú</p>
+        <!-- COLUMNA DERECHA: Resultados dinámicos (Aquí se cargará "Nueva solicitud" con sus tarifas y pago de forma limpia) -->
+        <div id="contenidoDinamico" class="panel-contenido" style="width: 100%; box-sizing: border-box;">
+            <p style="text-align: center; color: #666; margin-top: 40px;">Selecciona una opción del menú</p>
         </div>
 
     </main>
@@ -119,13 +146,12 @@
         <div class="footer-contenido">
 
             <div class="footer-seccion">
-                <img class="imagen1" src="img/nuevologo2.png" alt="Logo Certiredes">
-                <h3>Certiredes</h3>
-
+                <img class="imagen1" src="img/nuevologo2.png" alt="Logo Certi-Redes">
+                <h3>Certi-Redes</h3>
                 <p>Especialistas en inspección y certificación de redes de gas, cumpliendo con la normativa vigente.</p>
                 <p>📍 Calle 52B Norte #57-96</p>
                 <p>📞 300 123 4567</p>
-                <p>📧 contacto@certiredes.com</p>
+                <p>📧 contacto@Certi-Redes.com</p>
             </div>
 
             <div class="footer-seccion">
@@ -134,46 +160,38 @@
                     <li><a href="index.html">INICIO</a></li>
                     <li><a href="servicios.html">SERVICIOS</a></li>
                     <li><a href="quienes.html">QUIÉNES SOMOS</a></li>
-                    <li><a href="acceso.html">PORTAL CERTIREDES</a></li>
+                    <li><a href="acceso.html">PORTAL CERTI-REDES</a></li>
                 </ul>
             </div>
 
             <div class="footer-seccion">
                 <div class="seccion-redes">
-
                     <h2>Síguenos</h2>
-
                     <div class="redes">
-
                         <a href="https://www.facebook.com/" target="_blank" class="red">
                             <img src="img/facebook3.png" alt="Facebook">
                             <span>Facebook</span>
                         </a>
-
                         <a href="https://www.instagram.com/" target="_blank" class="red">
                             <img src="img/instagram3.png" alt="Instagram">
                             <span>Instagram</span>
                         </a>
-
                         <a href="https://wa.me/573001234567" target="_blank" class="red">
                             <img src="img/whatsapp3.png" alt="WhatsApp">
                             <span>WhatsApp</span>
                         </a>
-
                     </div>
-
                 </div>
-
             </div>
+
             <div class="aliado">
                 <h2>Aliado</h2>
                 <img src="img/gdo.png" alt="Gases de Occidente" class="aliado">
             </div>
         </div>
-        </div>
-
+        
         <div class="footer-copy">
-            © 2026 Certiredes - Todos los derechos reservados. Hecho por Stiven Quiroga.
+            © 2026 Certi-Redes - Todos los derechos reservados. Hecho por Stiven Quiroga.
         </div>
     </footer>
 

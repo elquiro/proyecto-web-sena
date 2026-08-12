@@ -7,7 +7,9 @@
     box-sizing: border-box;
 }
 
-
+html {
+    scroll-behavior: smooth;
+}
 
 
 
@@ -25,7 +27,7 @@ main {
                          /* <-- se elimina el min-height: 100vh que tenías aquí */
 }
 
-
+p{text-align: justify;}
 
 p li{
     text-align: justify;
@@ -70,6 +72,13 @@ img{
     border-radius: 10px;
 }
 
+.img-avatar{
+    width: 500px;
+}
+
+
+
+
 .titulo {
     font-size: 26px;
     text-align: center;
@@ -77,7 +86,7 @@ img{
 }
 
 .p-alineacion{
-    text-align: left;
+    text-align: center;
 }
 
 h2 {
@@ -187,15 +196,14 @@ img {
 }
 
 .btn-primary:hover,
-.btn-secondary:hover,
-.modo:hover {
+.btn-secondary:hover {
     background-color: #fff;
     color: #111;
     border: 5px solid #007979;
     transform: scale(1.05);
 }
 
-.btn-primary, .btn-secondary, .modo {
+.btn-primary, .btn-secondary {
     background-color: #0408f0;
     border: 4px solid #007979;
     border-radius: 10px;
@@ -211,6 +219,11 @@ button {
     font-weight: bold;
 }
 
+.requisitos {
+    max-width: 500px;
+    min-width: 300px;
+    margin: 0 auto;
+}
 
 
 section {
@@ -564,6 +577,64 @@ footer {
     text-align:center;
     padding: 10px;
      flex-shrink: 0;
+}
+
+
+/* Estilos para la sección de testimonios */
+.tarjeta-testimonio {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 25px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid #004080; /* Línea decorativa arriba */
+}
+
+/* Efecto al pasar el mouse por encima (hover) */
+.tarjeta-testimonio:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.estrellas {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.texto-testimonio {
+    font-style: italic;
+    color: #555;
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.cliente-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cliente-info .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #ddd; /* Color de fondo por si no hay imagen */
+}
+
+.cliente-info h4 {
+    margin: 0;
+    color: #333;
+    font-size: 1em;
+}
+
+.cliente-info p {
+    margin: 0;
+    color: #777;
+    font-size: 0.8em;
 }
 
 
@@ -1009,22 +1080,8 @@ footer {
     width: 100%;
 }
 
-.card {
-    background: #fff;
-    padding: 20px;
-    border-radius: 20px;
-    text-decoration: none;
-    color: #fff;
-    border: 2px solid #007979;
-    text-align: center;
-    width: 100%;
-    max-width: 340px;
-    margin: 0 auto;
-}
 
-.card:hover {
-    background: #1dba12;
-}
+
 
 .portal-info {
     background: #161616;
@@ -1544,9 +1601,10 @@ input:focus, select:focus {
     justify-content: center;
 }
 
-.portal-menu .card{
+.card{
     width: 100%;
     max-width: 280px;
+    height: 50px;
     margin: 0 auto;
     background-color: #fff;
     border-left: #007979 solid 5px;
@@ -1555,9 +1613,11 @@ input:focus, select:focus {
     text-decoration: none;
     color: #111;
     transition: 0.3s;
+    padding: 10px;
+    margin: 10px;
 }
 
-.portal-menu .card:hover {
+.card:hover {
     background-color: #0408f0;
     color: #fff;
 }

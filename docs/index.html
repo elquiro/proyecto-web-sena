@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certiredes - Servicios de Inspección</title>
+    <title>Certi-Redes - Servicios de Inspección</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
 
 <body>
-    <header id="inicio">
-        <div>
-            <img class="imagen1" src="img/nuevologo2.png" alt="Logo Certiredes">
+    <header>
+        <div id="top-pagina">
+            <img class="imagen1" src="img/nuevologo2.png" alt="Logo Certi-Redes">
         </div>
 
         <div>
@@ -20,7 +20,7 @@
                     <li><a href="index.html">INICIO</a></li>
                     <li><a href="servicios.html">SERVICIOS</a></li>
                     <li><a href="quienes.html">QUIÉNES SOMOS</a></li>
-                    <li><a href="acceso.html">PORTAL CERTIREDES</a></li>
+                    <li><a href="acceso.html">PORTAL CERTI-REDES</a></li>
                 </ul>
             </nav>
         </div>
@@ -48,11 +48,11 @@
         <div class="button-inicial">
             <a href="acceso.html" class="btn-primary">AGENDAR INSPECCIÓN</a>
             <a href="servicios.html" class="btn-secondary">VER SERVICIOS</a>
-            <button class="modo btn-primary">CAMBIAR A MODO OSCURO</button>
+
         </div>
 
         <div class="boton-flotante">
-            <a href="#inicio">
+            <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
                 <img src="img/flecha-hacia-arriba.png" class="subir" alt="Ir arriba">
             </a>
 
@@ -75,7 +75,7 @@
                 <div class="about-text">
                     <span class="subtitle">CONÓCENOS</span>
                     <h2>Comprometidos con tu seguridad y confianza</h2>
-                    <p>En <strong>Certiredes</strong> nos dedicamos a la
+                    <p>En <strong>Certi-Redes</strong> nos dedicamos a la
                         prestación de servicios técnicos especializados en
                         redes de gas natural y GLP. Trabajamos bajo
                         estrictas normas de calidad para garantizar que tus
@@ -105,7 +105,7 @@
 
         <section>
             <div>
-                <img src="img/nuevologo.png" alt="Certificación Certiredes">
+                <img src="img/nuevologo.png" alt="Certificación Certi-Redes">
             </div>
         </section>
 
@@ -114,7 +114,7 @@
 
             <!-- ENCABEZADO -->
             <div class="encabezado">
-                <h2 class="encabezado">Servicios de CertiRedes</h2>
+                <h2 class="encabezado">Servicios de Certi-Redes</h2>
                 Certificación, instalación y mantenimiento de redes de gas
             </div>
 
@@ -265,7 +265,7 @@
                 </p>
             </div>
 
-            <img class="img-certificado" src="img/certifcado.png" alt="Certificado de Gas">
+            <img class="img-certificado" src="img/certificado.png" alt="Certificado de Gas">
         </section>
 
         <section class="quienes" id="quienes-somos">
@@ -288,12 +288,12 @@
                 </p>
             </div>
 
-            <img class="img-quienes" src="img/quienes.png" alt="Quiénes Somos">
+            <img class="img-quienes" src="img/quienes-somos.png" alt="Quiénes Somos">
         </section>
 
         <section class="portal">
             <div class="texto">
-                <h2>Portal Certiredes</h2>
+                <h2>Portal Certi-Redes</h2>
 
                 <p>
                     A través de nuestro portal Certiredes, los usuarios pueden gestionar de manera rápida y sencilla sus
@@ -350,29 +350,131 @@
             <img class="img-contacto" src="img/atencion.png" alt="Atención al cliente Certiredes">
         </section>
 
+        <!-- encuenta de satisfaccion--> 
+        <section
+            style="background: #f9f9f9; padding: 40px 20px; max-width: 600px; margin: 20px auto; border-radius: 8px;">
+            <h2>Encuesta de Satisfacción - Certi-Redes</h2>
+            <p>Ayúdanos a mejorar evaluando nuestro servicio.</p>
 
-        <section style="background: #f9f9f9; padding: 40px 20px; max-width: 600px; margin: 20px auto; border-radius: 8px;">
-    <h2>Encuesta de Satisfacción - Certiredes</h2>
-    <p>Ayúdanos a mejorar evaluando nuestro servicio.</p>
-    
-    <form id="formEncuesta" style="display: flex; flex-direction: column; gap: 15px;">
-        <label>
-            1. ¿Qué tan fácil fue encontrar la información de precios?
-            <select id="facilidadPrecios" style="width: 100%; padding: 8px; margin-top: 5px;">
-                <option value="Muy fácil">Muy fácil</option>
-                <option value="Fácil">Fácil</option>
-                <option value="Difícil">Difícil</option>
-            </select>
-        </label>
+            <form id="formEncuesta" style="display: flex; flex-direction: column; gap: 15px;">
+                <!-- Nuevo campo de nombre -->
+                <label>Nombre (opcional):
+                    <input type="text" id="nombreUsuario" placeholder="Tu nombre"
+                        style="width: 100%; padding: 8px; margin-top: 5px;">
+                </label>
 
-        <label>
-            2. Comentarios o sugerencias:
-            <textarea id="comentariosUsuario" rows="3" placeholder="Escribe aquí..." style="width: 100%; padding: 8px; margin-top: 5px;"></textarea>
-        </label>
+                <label>1. ¿Qué tan fácil fue encontrar la información de precios?
+                    <select id="facilidadPrecios" style="width: 100%; padding: 8px; margin-top: 5px;">
+                        <option value="Muy fácil">Muy fácil</option>
+                        <option value="Fácil">Fácil</option>
+                        <option value="Difícil">Difícil</option>
+                    </select>
+                </label>
 
-        <button type="submit" style="background: #004080; color: white; border: none; padding: 10px; cursor: pointer; font-weight: bold;">Enviar Encuesta</button>
-    </form>
-</section>
+                
+                <!-- Nueva pregunta -->
+                <label>2. ¿Cómo calificaría nuestra atención al cliente?
+                    <select id="experienciaServicio" style="width: 100%; padding: 8px; margin-top: 5px;">
+                        <option value="Excelente">Excelente</option>
+                        <option value="Buena">Buena</option>
+                        <option value="Regular">Regular</option>
+                    </select>
+                </label>
+                <!-- Nueva pregunta -->
+                <label>3.	¿El tiempo de carga y la respuesta visual al enviar una solicitud de servicio fueron adecuados?
+                    <select id="experienciaServicio" style="width: 100%; padding: 8px; margin-top: 5px;">
+                        <option value="Si fue rapido y claro">Si fue rapido y claro</option>
+                        <option value="regular tardo un poco">regular tardo un poco</option>
+                        <option value="No, la pagina se sintio lenta">No, la pagina se sintio lenta</option>
+                    </select>
+                </label>
+                
+
+                <label>4.¿Qué tan probable es que recomiende los servicios de Certi-Redes a un familiar o vecino basándose en su experiencia en la web? 
+                    <select id="experienciaServicio" style="width: 100%; padding: 8px; margin-top: 5px;">
+                        <option value="Escala del 1 al 10">Escala del 1 al 10</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                      
+                    </select>
+                </label>
+
+                <label>5. Comentarios o sugerencias:
+                    <textarea id="comentariosUsuario" rows="3" placeholder="Escribe aquí..."
+                        style="width: 100%; padding: 8px; margin-top: 5px;"></textarea>
+                </label>
+
+                <button type="submit"
+                    style="background: #004080; color: white; border: none; padding: 10px; cursor: pointer; font-weight: bold;">Enviar
+                    Encuesta</button>
+            </form>
+        
+            <div id="mensajeExito"
+                style="display: none; padding: 20px; background: #d4edda; color: #155724; border: 1px solid #c3e6cb; border-radius: 5px; text-align: center; margin-top: 15px;">
+                <strong>¡Gracias por tu aporte!</strong> Hemos recibido tus respuestas correctamente.
+            </div>
+        </section>
+
+        <section class="seccion-testimonios" style="padding: 40px 20px; background-color: #f4f7f6; text-align: center;">
+            <h2 style="color: #004080; margin-bottom: 10px;">Lo que dicen nuestros clientes</h2>
+            <p class="p-alineacion" style="color: #666; margin-bottom: 30px;">Experiencias reales con nuestro servicio de certificación de
+                gas.</p>
+
+            <div class="contenedor-testimonios"
+                style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; max-width: 1000px; margin: 0 auto;">
+
+                <!-- Testimonio 1 -->
+                <div class="tarjeta-testimonio">
+                    <div class="estrellas">⭐⭐⭐⭐⭐</div>
+                    <p class="texto-testimonio">"Muy profesionales. Solicité la revisión de la red vencida y el técnico
+                        llegó a tiempo, explicó todo claro y me entregó el certificado rápido."</p>
+                    <div class="cliente-info">
+                        <img src="img/cliente5.png" alt="Cliente" class="avatar">
+                        <div>
+                            <h4>Carlos Ramírez</h4>
+                            <p class="p-alineacion">Conjunto Residencial</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 2 -->
+                <div class="tarjeta-testimonio">
+                    <div class="estrellas">⭐⭐⭐⭐⭐</div>
+                    <p class="texto-testimonio">"Excelente servicio para mi local comercial. Necesitábamos la
+                        certificación de una red nueva y nos asesoraron desde el diseño hasta el final."</p>
+                    <div class="cliente-info">
+                        <img src="img/cliente1.png" alt="Cliente" class="avatar">
+                        <div>
+                            <h4>Marta Gómez</h4>
+                            <p class="p-alineacion">Propietaria de Restaurante</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 3 -->
+                <div class="tarjeta-testimonio">
+                    <div class="estrellas">⭐⭐⭐⭐⭐</div>
+                    <p class="texto-testimonio">"El portal de clientes es súper fácil de usar. Pude programar mi
+                        revisión periódica desde el celular y pagar sin complicaciones. Recomendados."</p>
+                    <div class="cliente-info">
+                        <img src="img/cliente4.png" alt="Cliente" class="avatar">
+                        <div>
+                            <h4>Luis Fernando Ruiz</h4>
+                            <p class="p-alineacion">Usuario Residencial</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
 
 
 
@@ -382,12 +484,12 @@
         <div class="footer-contenido">
             <div class="footer-seccion">
                 <img class="imagen1" src="img/nuevologo2.png" alt="Logo Certiredes">
-                <h3>Certiredes</h3>
+                <h3>Certi-Redes</h3>
 
                 <p>Especialistas en inspección y certificación de redes de gas, cumpliendo con la normativa vigente.</p>
                 <p>📍 Calle 52B Norte #57-96</p>
                 <p>📞 300 123 4567</p>
-                <p>📧 contacto@certiredes.com</p>
+                <p>📧 contacto@Certi-Redes.com</p>
             </div>
 
             <div class="footer-seccion">
@@ -396,7 +498,7 @@
                     <li><a href="index.html">INICIO</a></li>
                     <li><a href="servicios.html">SERVICIOS</a></li>
                     <li><a href="quienes.html">QUIÉNES SOMOS</a></li>
-                    <li><a href="acceso.html">PORTAL CERTIREDES</a></li>
+                    <li><a href="acceso.html">PORTAL CERTI-REDES</a></li>
                 </ul>
             </div>
 
@@ -412,7 +514,7 @@
                             <span>Facebook</span>
                         </a>
 
-                        <a href="https://www.instagram.com/" target="_blank" class="red">
+                        <a href="https://www.instagram.com" target="_blank" class="red">
                             <img src="img/instagram3.png" alt="Instagram">
                             <span>Instagram</span>
                         </a>
@@ -435,9 +537,27 @@
         </div>
 
         <div class="footer-copy">
-            © 2026 Certiredes - Todos los derechos reservados. Hecho por Stiven Quiroga.
+            © 2026 Certi-Redes - Todos los derechos reservados. Hecho por Stiven Quiroga.
         </div>
     </footer>
+    <script>
+        document.getElementById("formEncuesta").addEventListener("submit", function (event) {
+            event.preventDefault(); // Evita que la página salte
+
+            // 1. Ocultamos el formulario
+            document.getElementById("formEncuesta").style.display = "none";
+
+            // 2. Mostramos el mensaje de éxito que acabamos de crear
+            const mensaje = document.getElementById("mensajeExito");
+            mensaje.style.display = "block";
+
+            // Opcional: Podrías hacer que el mensaje desaparezca o redirija después de unos segundos
+            setTimeout(function () {
+                mensaje.innerHTML = "Gracias por ayudarnos a mejorar Certiredes.";
+            }, 3000);
+        });
+    </script>
+
 </body>
 
 </html>

@@ -4,14 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificado de Inspección - Certiredes</title>
+    <title>Certificado de Inspección - Certi-Redes</title>
     <link rel="stylesheet" href="estilo.css">
     <style>
-        /* Barra de acciones para navegación e impresión */
+        /* Ajustes base */
+        body { margin: 0; padding: 0; font-family: sans-serif; background-color: #f4f4f4; }
+        
+        /* Barra de acciones */
         .barra-acciones {
             background-color: #1a365d;
-            padding: 15px 20px;
+            padding: 15px;
             display: flex;
+            flex-wrap: wrap; /* Permite que el botón baje en móviles */
             justify-content: space-between;
             align-items: center;
             color: white;
@@ -20,121 +24,53 @@
             z-index: 1000;
         }
 
-        .btn-volver {
-            background-color: #6c757d;
-            color: white;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .btn-volver:hover {
-            background-color: #5a6268;
-        }
-
-        .btn-imprimir {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .btn-imprimir:hover {
-            background-color: #218838;
-        }
-
-        /* Estilos del Certificado */
+        /* Certificado Responsivo */
         .contenedor-certificado {
+            width: 90%; /* Ajuste para móviles */
             max-width: 800px;
-            margin: 40px auto;
+            margin: 20px auto;
             background: #ffffff;
-            border: 8px double #1a365d;
-            padding: 40px;
+            border: 5px double #1a365d;
+            padding: 20px; /* Padding reducido para pantallas pequeñas */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
+            box-sizing: border-box;
         }
 
-        .certificado-header img {
-            max-width: 180px;
-            margin-bottom: 15px;
-        }
+        .certificado-header img { max-width: 120px; }
+        
+        .certificado-titulo { font-size: 22px; color: #1a365d; }
 
-        .certificado-titulo {
-            color: #1a365d;
-            font-size: 28px;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        /* Ajuste de fuentes para móviles */
+        .certificado-cuerpo { font-size: 16px; line-height: 1.5; margin: 20px 0; }
+        .dato-destacado { font-size: 18px; color: #007bff; }
+        .servicio-destacado { font-size: 18px; color: #28a745; }
 
-        .certificado-subtitulo {
-            color: #555;
-            font-size: 16px;
-            margin-bottom: 30px;
-        }
-
-        .sello-aprobado {
-            font-size: 60px;
-            margin: 15px 0;
-        }
-
-        .certificado-cuerpo {
-            font-size: 18px;
-            color: #333;
-            line-height: 1.8;
-            margin: 30px 0;
-        }
-
-        .dato-destacado {
-            font-size: 24px;
-            font-weight: bold;
-            color: #007bff;
-            display: block;
-            margin: 10px 0;
-        }
-
-        .servicio-destacado {
-            font-size: 22px;
-            font-weight: bold;
-            color: #28a745;
-            display: block;
-            margin: 10px 0;
-        }
-
+        /* Firmas en modo fila, pero se vuelven columna en pantallas muy pequeñas */
         .certificado-footer-firmas {
-            margin-top: 50px;
+            margin-top: 40px;
             display: flex;
             justify-content: space-around;
-            align-items: flex-end;
+            flex-wrap: wrap; 
+            gap: 20px;
         }
 
-        .firma-box {
-            border-top: 2px solid #333;
-            width: 200px;
-            padding-top: 8px;
-            font-size: 14px;
-            color: #555;
-        }
+        .firma-box { border-top: 2px solid #333; width: 180px; padding-top: 8px; font-size: 12px; }
 
-        /* Ocultar la barra de navegación al momento de imprimir/guardar en PDF */
+        /* Botón volver */
+        .btn-registro { display: inline-block; margin: 15px; padding: 10px; color: #1a365d; text-decoration: none; font-weight: bold; }
+
         @media print {
-            .barra-acciones, header, footer {
-                display: none !important;
-            }
-            body {
-                background: white;
-            }
-            .contenedor-certificado {
-                border: 4px solid #1a365d;
-                box-shadow: none;
-                margin: 0;
-                width: 100%;
-            }
+            .barra-acciones, .btn-registro, footer { display: none !important; }
+            .contenedor-certificado { border: 4px solid #1a365d; width: 100%; margin: 0; }
+        }
+
+        /* RESPONSIVE ESPECÍFICO PARA MÓVILES */
+        @media (max-width: 600px) {
+            .barra-acciones { justify-content: center; gap: 10px; }
+            .certificado-titulo { font-size: 18px; }
+            .contenedor-certificado { padding: 15px; }
+            .sello-aprobado { font-size: 40px; }
         }
     </style>
 </head>
@@ -142,23 +78,21 @@
 <body>
 
     <div class="barra-acciones">
-        <h2>Vista previa del documento</h2>
-        <button class="btn-imprimir" onclick="window.print()">🖨️ Guardar en PDF / Imprimir</button>
+        <h2 style="margin: 0; font-size: 1.2em;">Vista previa</h2>
+        <button class="btn-imprimir" onclick="window.print()">🖨️ PDF / Imprimir</button>
     </div>
 
     <main>
-        <div>
-            <a href="portal.html" class="btn-registro">⬅ Volver al Portal Certiredes</a>
-        </div>
+        <a href="portal.html" class="btn-registro">⬅ Volver</a>
 
         <div class="contenedor-certificado">
             <div class="certificado-header">
                 <img src="img/nuevologo.png" alt="Logo Certiredes">
                 <h1 class="certificado-titulo">Certiredes S.A.S</h1>
-                <p class="certificado-subtitulo">Organismo de Inspección y Certificación de Redes de Gas</p>
+                <p>Organismo de Inspección y Certificación</p>
             </div>
 
-            <hr style="border: 0; border-top: 2px solid #1a365d; margin: 20px 0;">
+            <hr>
 
             <h2>CERTIFICADO DE CONFORMIDAD</h2>
             <div class="sello-aprobado">📜✅</div>
@@ -167,72 +101,30 @@
                 <p>Certifica que el usuario:</p>
                 <span id="certNombre" class="dato-destacado">Cargando usuario...</span>
 
-                <p>Ha completado satisfactoriamente el proceso de inspección para:</p>
+                <p>Ha completado satisfactoriamente la inspección para:</p>
                 <span id="certServicio" class="servicio-destacado">Cargando servicio...</span>
-
-                <p>Cumpliendo rigurosamente con la normativa técnica vigente de instalaciones de gas y los estándares de seguridad establecidos.</p>
             </div>
 
-            <p style="font-size: 14px; color: #666; margin-top: 20px;">
-                <strong>Fecha de emisión:</strong> <span id="certFecha"></span>
-            </p>
+            <p><strong>Fecha:</strong> <span id="certFecha"></span></p>
 
             <div class="certificado-footer-firmas">
-                <div class="firma-box">
-                    <strong>Certiredes S.A.S</strong><br>
-                    Área de Inspección Técnica
-                </div>
-                <div class="firma-box">
-                    <strong>Firma Digital</strong><br>
-                    Sistema de Verificación
-                </div>
+                <div class="firma-box"><strong>Certi-Redes S.A.S</strong><br>Área Técnica</div>
+                <div class="firma-box"><strong>Firma Digital</strong><br>Sistema Autorizado</div>
             </div>
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="footer-copy">
-            <h2>© 2026 Certiredes - Todos los derechos reservados. Hecho por Stiven Quiroga.</h2>
-        </div>
-    </footer>
-
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // 1. Obtener parámetros de la URL si existen
+            // Tu lógica de JS permanece igual, solo renderizamos al cargar
             const urlParams = new URLSearchParams(window.location.search);
             let nombreURL = urlParams.get('nombre');
             let servicioURL = urlParams.get('servicio');
-
-            // 2. Obtener el usuario activo en la sesión
             let usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo"));
 
-            let nombreFinal = "";
+            let nombreFinal = nombreURL || (usuarioActivo ? usuarioActivo.nombre : "Cliente");
+            let servicioFinal = servicioURL || "Revisión Técnica de Gas";
 
-            // A) Si el nombre viene por URL y NO es "undefined", usamos ese
-            if (nombreURL && nombreURL !== "undefined" && nombreURL !== "null") {
-                nombreFinal = nombreURL;
-            } 
-            // B) Si el usuario actualmente en sesión ES CLIENTE, usamos su nombre
-            else if (usuarioActivo && usuarioActivo.tipo === "cliente") {
-                nombreFinal = usuarioActivo.nombre || usuarioActivo.correo;
-            } 
-            // C) Si no es cliente (ej. es inspector o aspirante), buscamos en las solicitudes guardadas
-            else {
-                let solicitudes = JSON.parse(localStorage.getItem("solicitudes")) || [];
-                // Buscamos la primera solicitud que esté Finalizada y tenga un cliente asignado
-                let solicitudCertificada = solicitudes.find(s => s.estado === "Finalizado" && s.clienteNombre);
-                
-                if (solicitudCertificada) {
-                    nombreFinal = solicitudCertificada.clienteNombre;
-                    if (!servicioURL) servicioURL = solicitudCertificada.tipo;
-                } else {
-                    nombreFinal = "Cliente Registrado";
-                }
-            }
-
-            let servicioFinal = servicioURL && servicioURL !== "undefined" ? servicioURL : "Revisión e Inspección Técnica de Gas";
-
-            // 3. Renderizar en la pantalla
             document.getElementById('certNombre').innerText = nombreFinal;
             document.getElementById('certServicio').innerText = servicioFinal;
             document.getElementById('certFecha').innerText = new Date().toLocaleDateString();

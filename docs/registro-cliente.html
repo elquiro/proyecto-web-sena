@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro Cliente - Certiredes</title>
+    <title>Registro Cliente - Certi-Redes</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
 
@@ -21,7 +21,7 @@
                     <li><a href="index.html">INICIO</a></li>
                     <li><a href="servicios.html">SERVICIOS</a></li>
                     <li><a href="quienes.html">QUIÉNES SOMOS</a></li>
-                    <li><a href="acceso.html">PORTAL CERTIREDES</a></li>
+                    <li><a href="acceso.html">PORTAL CERTI-REDES</a></li>
                 </ul>
             </nav>
         </div>
@@ -51,8 +51,17 @@
                     <label for="direccion">Dirección:</label><br>
                     <input type="text" id="direccion" name="direccion" placeholder="Dirección (opcional)"><br><br>
 
-                    <label for="ciudad">Ciudad:</label><br>
-                    <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad" required><br><br>
+                    <label for="ciudad">Ciudad:</label><br> 
+                    <select id="ciudad" name="ciudad" required>
+                        <option value="">Selecciona la Ciudad</option>
+                        <option value="CALI">CALI</option>
+                        <option value="MANIZALEZ">MANIZALES</option>
+                        <option value="PEREIRA">PEREIRA </option>
+                        <option value="ARMENIA">ARMENIA</option>
+
+                    </select>
+
+                    <br><br>
 
                     <label for="correo">Correo electrónico:</label><br>
                     <input type="email" id="correo" name="correo" required><br><br>
@@ -81,12 +90,12 @@
 
             <div class="footer-seccion">
                 <img class="imagen1" src="img/nuevologo2.png" alt="Logo Certiredes">
-                <h3>Certiredes</h3>
+                <h3>Certi-Redes</h3>
 
                 <p>Especialistas en inspección y certificación de redes de gas, cumpliendo con la normativa vigente.</p>
                 <p>📍 Calle 52B Norte #57-96</p>
                 <p>📞 300 123 4567</p>
-                <p>📧 contacto@certiredes.com</p>
+                <p>📧 contacto@Certi-Redes.com</p>
             </div>
 
             <div class="footer-seccion">
@@ -95,7 +104,7 @@
                     <li><a href="index.html">INICIO</a></li>
                     <li><a href="servicios.html">SERVICIOS</a></li>
                     <li><a href="quienes.html">QUIÉNES SOMOS</a></li>
-                    <li><a href="acceso.html">PORTAL CERTIREDES</a></li>
+                    <li><a href="acceso.html">PORTAL CERTI-REDES</a></li>
                 </ul>
             </div>
 
@@ -134,7 +143,7 @@
         </div>
 
         <div class="footer-copy">
-            © 2026 Certiredes - Todos los derechos reservados. Hecho por Stiven Quiroga.
+            © 2026 Certi-Redes - Todos los derechos reservados. Hecho por Stiven Quiroga.
         </div>
     </footer>
 

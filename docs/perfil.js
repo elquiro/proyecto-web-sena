@@ -101,25 +101,33 @@ function reducirImagen(file, callback) {
     reader.readAsDataURL(file);
 }
 
-
 // ===============================
-// 🧠 GUARDADO REAL
+// 🧠 GUARDADO REAL (ACTUALIZADO)
 // ===============================
 function guardarTodo(usuario, usuarios) {
     console.log("💾 GUARDANDO:", usuario);
     console.log("📦 LISTA USUARIOS:", usuarios);
 
-    let index = usuarios.findIndex(u => u.id === usuario.id);
+    // 1. Asegurar que el usuario tenga un ID único
+    if (!usuario.id) {
+        usuario.id = Date.now().toString();
+    }
 
+    // 2. Buscar al usuario en la lista usando el ID
+    let index = usuarios.findIndex(u => u.id == usuario.id);
+
+    // 3. Si existe, lo reemplazamos; si no, lo añadimos
     if (index !== -1) {
         usuarios[index] = usuario;
     } else {
         usuarios.push(usuario);
     }
 
+    // 4. Guardar en localStorage
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
     localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
 
+    // 5. Actualizar la vista (interfaz)
     document.getElementById("nombreUsuario").innerText = usuario.nombre;
 
     if (usuario.foto) {
@@ -128,8 +136,6 @@ function guardarTodo(usuario, usuarios) {
 
     alert("¡Perfil actualizado correctamente!");
 }
-
-
 // ===============================
 // ❌ CANCELAR
 // ===============================
@@ -207,3 +213,37 @@ function actualizarEstados() {
 
     localStorage.setItem("solicitudes", JSON.stringify(solicitudes));
 }
+
+
+// ===============================
+// 🤖 GENERAR DATOS AUTOMÁTICOS (MODO DEMO INTELIGENTE)
+// ===============================
+function verificarYGenerarSolicitudesAutomaticas() {
+    let solicitudes = JSON.parse(localStorage.getItem("solicitudes")) || [];
+
+    // Si la lista está totalmente vacía, creamos 4 registros falsos muy profesionales
+    if (solicitudes.length === 0) {
+        const clientesFalsos = ["Carlos Gómez", "María Fernanda López", "Andrés Felipe Pérez", "Luisa Fernanda Torres", "Jorge Eliécer Riascos"];
+        const serviciosFalsos = ["Revisión periódica ($120.000)", "Red nueva ($200.000)", "Red vencida ($170.000)", "Inspección de gas comercial ($160.000)"];
+        const inspectoresFalsos = ["Ing. Roberto Cárdenas", "Ing. Diana Marcela Valencia", "Técnico Carlos Orozco", "Ing. Mauricio Benítez"];
+        const estadosFalsos = ["Pendiente", "En proceso", "Finalizado"];
+
+        for (let i = 0; i < 4; i++) {
+            solicitudes.push({
+                id: 1000 + i,
+                usuarioId: "demo_" + i,
+                tipo: serviciosFalsos[Math.floor(Math.random() * serviciosFalsos.length)],
+                nombreCliente: clientesFalsos[Math.floor(Math.random() * clientesFalsos.length)],
+                inspectorAsignado: inspectoresFalsos[Math.floor(Math.random() * inspectoresFalsos.length)],
+                estado: estadosFalsos[Math.floor(Math.random() * estadosFalsos.length)],
+                fecha: new Date().toLocaleDateString()
+            });
+        }
+
+        // Guardamos los datos automáticos en el LocalStorage
+        localStorage.setItem("solicitudes", JSON.stringify(solicitudes));
+    }
+}
+
+// Ejecutar esta verificación apenas carga cualquier script que use solicitudes
+verificarYGenerarSolicitudesAutomaticas();
