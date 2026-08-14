@@ -127,7 +127,7 @@ if (botonModo) {
             botonModo.textContent = "CAMBIAR A MODO OSCURO";
         }
     });
-<<<<<<< HEAD
+
 }
 
 // =========================================================================
@@ -204,6 +204,5 @@ function guardarSolicitud(tipo, metodoPago = "nequi") {
     localStorage.setItem("solicitudes", JSON.stringify(solicitudes));
 
     alert("¡Solicitud guardada correctamente! Inspector asignado: " + inspectorAsignado.nombre);
-=======
->>>>>>> 5aa59261b86f90ba7b83b70ec2e5a81d1f937ed1
+
 }

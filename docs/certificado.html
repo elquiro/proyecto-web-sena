@@ -2,20 +2,39 @@
 <html lang="es">
 
 <head>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NJG8F4TP');</script>
+    <!-- End Google Tag Manager -->
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certificado de Inspección - Certi-Redes</title>
     <link rel="stylesheet" href="estilo.css">
     <style>
         /* Ajustes base */
-        body { margin: 0; padding: 0; font-family: sans-serif; background-color: #f4f4f4; }
-        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: #f4f4f4;
+        }
+
         /* Barra de acciones */
         .barra-acciones {
             background-color: #1a365d;
             padding: 15px;
             display: flex;
-            flex-wrap: wrap; /* Permite que el botón baje en móviles */
+            flex-wrap: wrap;
+            /* Permite que el botón baje en móviles */
             justify-content: space-between;
             align-items: center;
             color: white;
@@ -26,56 +45,114 @@
 
         /* Certificado Responsivo */
         .contenedor-certificado {
-            width: 90%; /* Ajuste para móviles */
+            width: 90%;
+            /* Ajuste para móviles */
             max-width: 800px;
             margin: 20px auto;
             background: #ffffff;
             border: 5px double #1a365d;
-            padding: 20px; /* Padding reducido para pantallas pequeñas */
+            padding: 20px;
+            /* Padding reducido para pantallas pequeñas */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
             box-sizing: border-box;
         }
 
-        .certificado-header img { max-width: 120px; }
-        
-        .certificado-titulo { font-size: 22px; color: #1a365d; }
+        .certificado-header img {
+            max-width: 120px;
+        }
+
+        .certificado-titulo {
+            font-size: 22px;
+            color: #1a365d;
+        }
 
         /* Ajuste de fuentes para móviles */
-        .certificado-cuerpo { font-size: 16px; line-height: 1.5; margin: 20px 0; }
-        .dato-destacado { font-size: 18px; color: #007bff; }
-        .servicio-destacado { font-size: 18px; color: #28a745; }
+        .certificado-cuerpo {
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 20px 0;
+        }
+
+        .dato-destacado {
+            font-size: 18px;
+            color: #007bff;
+        }
+
+        .servicio-destacado {
+            font-size: 18px;
+            color: #28a745;
+        }
 
         /* Firmas en modo fila, pero se vuelven columna en pantallas muy pequeñas */
         .certificado-footer-firmas {
             margin-top: 40px;
             display: flex;
             justify-content: space-around;
-            flex-wrap: wrap; 
+            flex-wrap: wrap;
             gap: 20px;
         }
 
-        .firma-box { border-top: 2px solid #333; width: 180px; padding-top: 8px; font-size: 12px; }
+        .firma-box {
+            border-top: 2px solid #333;
+            width: 180px;
+            padding-top: 8px;
+            font-size: 12px;
+        }
 
         /* Botón volver */
-        .btn-registro { display: inline-block; margin: 15px; padding: 10px; color: #1a365d; text-decoration: none; font-weight: bold; }
+        .btn-registro {
+            display: inline-block;
+            margin: 15px;
+            padding: 10px;
+            color: #1a365d;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
         @media print {
-            .barra-acciones, .btn-registro, footer { display: none !important; }
-            .contenedor-certificado { border: 4px solid #1a365d; width: 100%; margin: 0; }
+
+            .barra-acciones,
+            .btn-registro,
+            footer {
+                display: none !important;
+            }
+
+            .contenedor-certificado {
+                border: 4px solid #1a365d;
+                width: 100%;
+                margin: 0;
+            }
         }
 
         /* RESPONSIVE ESPECÍFICO PARA MÓVILES */
         @media (max-width: 600px) {
-            .barra-acciones { justify-content: center; gap: 10px; }
-            .certificado-titulo { font-size: 18px; }
-            .contenedor-certificado { padding: 15px; }
-            .sello-aprobado { font-size: 40px; }
+            .barra-acciones {
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .certificado-titulo {
+                font-size: 18px;
+            }
+
+            .contenedor-certificado {
+                padding: 15px;
+            }
+
+            .sello-aprobado {
+                font-size: 40px;
+            }
         }
     </style>
 </head>
 
 <body>
+
+     <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJG8F4TP" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <div class="barra-acciones">
         <h2 style="margin: 0; font-size: 1.2em;">Vista previa</h2>
@@ -87,7 +164,7 @@
 
         <div class="contenedor-certificado">
             <div class="certificado-header">
-                <img src="img/nuevologo.png" alt="Logo Certiredes">
+                <img src="img/nuevologo.png" alt="Imagen del Logo de Certiredes">
                 <h1 class="certificado-titulo">Certiredes S.A.S</h1>
                 <p>Organismo de Inspección y Certificación</p>
             </div>
